@@ -6,6 +6,9 @@
     "node": true
   },
   "rules": {
-    "prettier/prettier": "error"
+    "prettier/prettier": "error",
+    "react/jsx-filename-extension": 0,
+    "no-underscore-dangle": 0,
+    "import/prefer-default-export": 0
   }
 }
