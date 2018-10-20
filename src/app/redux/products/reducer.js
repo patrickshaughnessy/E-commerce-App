@@ -2,7 +2,8 @@ const axios = require('axios');
 
 export const PRODUCTS_INTIAL_STATE = {
   productsList: [],
-  productsMap: {},
+  productsById: {},
+  productsByCategory: {},
 };
 
 export const FETCH_PRODUCTS = 'FETCH_PRODUCTS';
@@ -33,8 +34,8 @@ export const reducer = (state = PRODUCTS_INTIAL_STATE, action) => {
       return {
         ...state,
         loading: false,
-        productsMap: {
-          ...state.productsMap,
+        productsById: {
+          ...state.productsById,
           [action.payload._id]: action.payload,
         },
       };
@@ -68,8 +69,14 @@ export const fetchProducts = dispatch => () => {
         type: FETCH_PRODUCTS_SUCCESS,
         payload: {
           productsList: data,
-          productsMap: data.reduce((acc, product) => {
+          productsById: data.reduce((acc, product) => {
             acc[product._id] = product;
+            return acc;
+          }, {}),
+          productsByCategory: data.reduce((acc, product) => {
+            acc[product.category] = acc[product.category]
+              ? acc[product.category].concat(product)
+              : [product];
             return acc;
           }, {}),
         },

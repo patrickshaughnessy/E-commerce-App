@@ -10,13 +10,12 @@ class _ProductInfo extends Component {
   componentDidMount() {
     const {
       dispatchFetchProduct,
-      productsMap,
+      productsById,
       match: {
         params: { productId },
       },
     } = this.props;
-    if (!productsMap[productId]) {
-      console.log('fetch');
+    if (!productsById[productId]) {
       dispatchFetchProduct(productId);
     }
   }
@@ -24,12 +23,12 @@ class _ProductInfo extends Component {
   render() {
     const {
       loading,
-      productsMap,
+      productsById,
       match: {
         params: { productId },
       },
     } = this.props;
-    const product = productsMap[productId];
+    const product = productsById[productId];
     if (loading) {
       return <Loading message="Fetching your product" />;
     }
@@ -55,15 +54,17 @@ class _ProductInfo extends Component {
             ))}
           </div>
         </div>
-        <ProductCarousel />
+        <div className="col-xs-12">
+          <ProductCarousel product={product} />
+        </div>
       </div>
     );
   }
 }
 
-const mapStateToProps = ({ products: { loading, productsMap } }) => ({
+const mapStateToProps = ({ products: { loading, productsById } }) => ({
   loading,
-  productsMap,
+  productsById,
 });
 
 const mapDispatchToProps = dispatch => ({

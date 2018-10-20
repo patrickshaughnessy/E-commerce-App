@@ -1,127 +1,149 @@
-import React, { Component } from 'react';
+import React, { Fragment, Component } from 'react';
+import { Carousel, CarouselItem, CarouselControl } from 'reactstrap';
 import { connect } from 'react-redux';
 import { v4 } from 'uuid';
 
-import Loading from './Loading';
 import { fetchProducts } from '../redux/products/reducer';
 
-class _ProductInfo extends Component {
+class _ProductCarousel extends Component {
+  constructor(props) {
+    super(props);
+    this.state = { activeIndex: 0 };
+  }
+
   componentDidMount() {
-    const { dispatchFetchProducts, productsByCategory, category } = this.props;
-    if (!productsByCategory) {
-      console.log('fetch');
-      // dispatchFetchProducts();
+    const {
+      dispatchFetchProducts,
+      productsByCategory,
+      product: { category },
+    } = this.props;
+    if (!productsByCategory[category]) {
+      dispatchFetchProducts();
     }
   }
 
-  render() {
-    const {
-      // loading,
-      productsByCategory,
-      category,
-    } = this.props;
+  onExiting = () => {
+    this.animating = true;
+  };
 
-    console.log('product carousel');
-    return (
-      <div
-        id="carouselExampleIndicators"
-        className="carousel slide"
-        data-ride="carousel"
+  onExited = () => {
+    this.animating = false;
+  };
+
+  next = num => {
+    if (this.animating) return;
+    const items = this.getProductsRows(num);
+    const nextIndex =
+      this.state.activeIndex === items.length - 1
+        ? 0
+        : this.state.activeIndex + 1;
+    this.setState({ activeIndex: nextIndex });
+  };
+
+  previous = num => {
+    if (this.animating) return;
+    const items = this.getProductsRows(num);
+    const nextIndex =
+      this.state.activeIndex === 0
+        ? items.length - 1
+        : this.state.activeIndex - 1;
+    this.setState({ activeIndex: nextIndex });
+  };
+
+  goToIndex = newIndex => {
+    if (this.animating) return;
+    this.setState({ activeIndex: newIndex });
+  };
+
+  getProductsRows = num => {
+    const {
+      productsByCategory,
+      product: { category, _id },
+    } = this.props;
+    const filteredProducts = (productsByCategory[category] || []).filter(
+      p => p._id !== _id
+    );
+
+    const productRowsDesktop = filteredProducts.reduce((acc, product, i) => {
+      if (i % num === 0) {
+        acc.push([product]);
+      } else {
+        acc[acc.length - 1].push(product);
+      }
+      return acc;
+    }, []);
+
+    return productRowsDesktop;
+  };
+
+  renderProduct = product => (
+    <div className="col-xs-12 col-sm-4">
+      <img src={product.images[0]} alt="text" />
+      <span className="">{product.name}</span>
+      <span className="float-right">{product.price}</span>
+    </div>
+  );
+
+  renderSlides = num => {
+    const productRowsDesktop = this.getProductsRows(num);
+    const slides = productRowsDesktop.map(row => (
+      <CarouselItem
+        onExiting={this.onExiting}
+        onExited={this.onExited}
+        key={v4()}
       >
-        <ol className="carousel-indicators">
-          <li
-            data-target="#carouselExampleIndicators"
-            data-slide-to="0"
-            className="active"
-          />
-          <li data-target="#carouselExampleIndicators" data-slide-to="1" />
-          <li data-target="#carouselExampleIndicators" data-slide-to="2" />
-        </ol>
-        <div className="carousel-inner">
-          <div className="carousel-item active">
-            <div className="row">
-              <div className="col-md-3">
-                <img
-                  className="d-block w-100"
-                  src="https://via.placeholder.com/200/842F95/FFFFFF/?text=Mouse+Pad"
-                  alt="First slide"
-                />
-              </div>
-              <div className="col-md-3">
-                <img
-                  className="d-block w-100"
-                  src="https://via.placeholder.com/200/842F95/FFFFFF/?text=Mouse+Pad"
-                  alt="First slide"
-                />
-              </div>
-              <div className="col-md-3">
-                <img
-                  className="d-block w-100"
-                  src="https://via.placeholder.com/200/842F95/FFFFFF/?text=Mouse+Pad"
-                  alt="First slide"
-                />
-              </div>
-              <div className="col-md-3">
-                <img
-                  className="d-block w-100"
-                  src="https://via.placeholder.com/200/842F95/FFFFFF/?text=Mouse+Pad"
-                  alt="First slide"
-                />
-              </div>
-            </div>
-          </div>
-          <div className="carousel-item">
-            <div className="row">
-              <div className="col-md-3">
-                <img
-                  className="d-block w-100"
-                  src="https://via.placeholder.com/200/842F95/FFFFFF/?text=Mouse+Pad"
-                  alt="First slide"
-                />
-              </div>
-              <div className="col-md-3">
-                <img
-                  className="d-block w-100"
-                  src="https://via.placeholder.com/200/842F95/FFFFFF/?text=Mouse+Pad"
-                  alt="First slide"
-                />
-              </div>
-              <div className="col-md-3">
-                <img
-                  className="d-block w-100"
-                  src="https://via.placeholder.com/200/842F95/FFFFFF/?text=Mouse+Pad"
-                  alt="First slide"
-                />
-              </div>
-              <div className="col-md-3">
-                <img
-                  className="d-block w-100"
-                  src="https://via.placeholder.com/200/842F95/FFFFFF/?text=Mouse+Pad"
-                  alt="First slide"
-                />
-              </div>
-            </div>
-          </div>
+        <div className="row">{row.map(this.renderProduct)}</div>
+      </CarouselItem>
+    ));
+    return slides;
+  };
+
+  render() {
+    const { activeIndex } = this.state;
+
+    return (
+      <Fragment>
+        <div className="d-block d-sm-none">
+          <Carousel
+            activeIndex={activeIndex}
+            next={() => this.next(1)}
+            previous={() => this.previous(1)}
+            interval={false}
+          >
+            {this.renderSlides(1)}
+            <CarouselControl
+              direction="prev"
+              directionText="Previous"
+              onClickHandler={() => this.previous(1)}
+            />
+            <CarouselControl
+              direction="next"
+              directionText="Next"
+              onClickHandler={() => this.next(1)}
+            />
+          </Carousel>
         </div>
-        <a
-          className="carousel-control-prev"
-          href="#carouselExampleIndicators"
-          role="button"
-          data-slide="prev"
-        >
-          <span className="carousel-control-prev-icon" aria-hidden="true" />
-          <span className="sr-only">Previous</span>
-        </a>
-        <a
-          className="carousel-control-next"
-          href="#carouselExampleIndicators"
-          role="button"
-          data-slide="next"
-        >
-          <span className="carousel-control-next-icon" aria-hidden="true" />
-          <span className="sr-only">Next</span>
-        </a>
-      </div>
+        <div className="d-none d-sm-block">
+          <Carousel
+            activeIndex={activeIndex}
+            next={() => this.next(3)}
+            previous={() => this.previous(3)}
+            interval={false}
+          >
+            {this.renderSlides(3)}
+            <CarouselControl
+              direction="prev"
+              directionText="Previous"
+              onClickHandler={() => this.previous(3)}
+            />
+            <CarouselControl
+              direction="next"
+              directionText="Next"
+              onClickHandler={() => this.next(3)}
+            />
+          </Carousel>
+        </div>
+      </Fragment>
     );
   }
 }
@@ -135,9 +157,9 @@ const mapDispatchToProps = dispatch => ({
   dispatchFetchProducts: fetchProducts(dispatch),
 });
 
-const ProductInfo = connect(
+const ProductCarousel = connect(
   mapStateToProps,
   mapDispatchToProps
-)(_ProductInfo);
+)(_ProductCarousel);
 
-export default ProductInfo;
+export default ProductCarousel;

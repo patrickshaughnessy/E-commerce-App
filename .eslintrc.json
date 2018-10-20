@@ -5,12 +5,15 @@
     "browser": true,
     "node": true
   },
+  "parser": "babel-eslint",
   "rules": {
     "prettier/prettier": "error",
     "react/jsx-filename-extension": 0,
     "no-underscore-dangle": 0,
     "import/prefer-default-export": 0,
     "react/destructuring-assignment": 0,
-    "react/prop-types": 1
+    "react/prop-types": 1,
+    "class-methods-use-this": 0,
+    "react/sort-comp": 0
   }
 }

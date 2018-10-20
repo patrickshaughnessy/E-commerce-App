@@ -1,5 +1,5 @@
 {
   "verbose": true,
-  "ignore": ["dist"],
+  "ignore": ["./dist"],
   "delay": "300"
 }
