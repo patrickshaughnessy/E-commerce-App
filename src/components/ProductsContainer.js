@@ -1,23 +1,55 @@
-import React from 'react';
+import React, { Component } from 'react';
+import { connect } from 'react-redux';
 import { v4 } from 'uuid';
 
 import Product from './Product';
+import { fetchProducts } from '../redux/products/reducer';
 
-const ProductsContainer = () => {
-  const images = () => Array(3)
-    .fill(1)
-    .map(() => 'http://dummyimage.com/200x200/000/00ffd5.png&text=Image');
-  const imageRows = Array(4)
-    .fill(1)
-    .map(images);
+class _ProductsContainer extends Component {
+  componentDidMount() {
+    this.props.dispatchFetchProducts();
+  }
 
-  return (
-    <div className="container">
-      {imageRows.map(imageRow => (
-        <div key={v4()} className="card-columns">{imageRow.map(image => <Product key={v4()} id={v4()} src={image} />)}</div>
-      ))}
-    </div>
-  );
-};
+  render() {
+    const { loading, productsList } = this.props;
+    if (loading) {
+      return <p>Loading</p>;
+    }
+
+    const productRows = productsList.reduce((acc, product, i) => {
+      if (i % 3 === 0) {
+        acc.push([product]);
+      } else {
+        acc[acc.length - 1].push(product);
+      }
+      return acc;
+    }, []);
+
+    return (
+      <div className="container">
+        {productRows.map(productRow => (
+          <div key={v4()} className="card-columns">
+            {productRow.map(product => (
+              <Product key={v4()} id={v4()} {...product} />
+            ))}
+          </div>
+        ))}
+      </div>
+    );
+  }
+}
+
+const mapStateToProps = ({ products: { productsList } }) => ({
+  productsList,
+});
+
+const mapDispatchToProps = dispatch => ({
+  dispatchFetchProducts: fetchProducts(dispatch),
+});
+
+const ProductsContainer = connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(_ProductsContainer);
 
 export default ProductsContainer;
