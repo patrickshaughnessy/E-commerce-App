@@ -1,7 +1,7 @@
 const { products } = require('../controllers');
 
 const configureRoutes = app => {
-  app.get('/products', products.fetchAll);
+  app.get('/api/products', products.fetchAll);
 };
 
 module.exports = configureRoutes;
