@@ -1,4 +1,17 @@
 const express = require('express');
+const mongoose = require('mongoose');
+
+mongoose.connect(
+  'mongodb://localhost/ecommerceApp',
+  {
+    useNewUrlParser: true,
+  }
+);
+const db = mongoose.connection;
+db.on('error', e => console.error('error connecting to mongodb', e));
+db.on('open', () => {
+  console.log('connected');
+});
 
 const configureRoutes = require('./routes');
 

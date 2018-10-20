@@ -1,6 +1,8 @@
-const fetchAll = (req, res, next) => {
-  console.log('products');
-  res.json('products');
+const { Product } = require('../data');
+
+const fetchAll = async (req, res) => {
+  const products = await Product.find();
+  res.json(products);
 };
 
 module.exports = {

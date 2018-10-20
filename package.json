@@ -7,12 +7,15 @@
     "start": "node .",
     "start:dev": "nodemon",
     "lint": "eslint .",
-    "test": "jest"
+    "test": "jest",
+    "generate:all": "node ./data/utils/generate"
   },
   "author": "",
   "license": "ISC",
   "dependencies": {
     "express": "^4.16.4",
+    "lodash": "^4.17.11",
+    "lorem-ipsum": "^1.0.6",
     "mongoose": "^5.3.4"
   },
   "devDependencies": {
@@ -23,6 +26,7 @@
     "eslint-plugin-jsx-a11y": "^6.1.2",
     "eslint-plugin-prettier": "^3.0.0",
     "eslint-plugin-react": "^7.11.1",
+    "fs-extra": "^7.0.0",
     "nodemon": "^1.18.4",
     "prettier": "^1.14.3",
     "prettier-eslint": "^8.8.2"
