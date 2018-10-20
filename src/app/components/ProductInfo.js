@@ -3,7 +3,6 @@ import { connect } from 'react-redux';
 import { v4 } from 'uuid';
 
 import Loading from './Loading';
-import ProductCarousel from './ProductCarousel';
 import { fetchProduct } from '../redux/products/reducer';
 
 class _ProductInfo extends Component {
@@ -53,9 +52,6 @@ class _ProductInfo extends Component {
               <p key={v4()}>{desc}</p>
             ))}
           </div>
-        </div>
-        <div className="col-xs-12">
-          <ProductCarousel product={product} />
         </div>
       </div>
     );
