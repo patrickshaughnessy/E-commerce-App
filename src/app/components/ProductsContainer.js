@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 import { v4 } from 'uuid';
 
 import Product from './Product';
+import Loading from './Loading';
 import { fetchProducts } from '../redux/products/reducer';
 
 class _ProductsContainer extends Component {
@@ -13,7 +14,7 @@ class _ProductsContainer extends Component {
   render() {
     const { loading, productsList } = this.props;
     if (loading) {
-      return <p>Loading</p>;
+      return <Loading message="Hang on, we're loading products" />;
     }
 
     const productRows = productsList.reduce((acc, product, i) => {
@@ -27,6 +28,7 @@ class _ProductsContainer extends Component {
 
     return (
       <div className="container">
+        {/* <Loading message="Hang on, we're loading products" /> */}
         {productRows.map(productRow => (
           <div key={v4()} className="card-columns">
             {productRow.map(product => (
@@ -39,7 +41,8 @@ class _ProductsContainer extends Component {
   }
 }
 
-const mapStateToProps = ({ products: { productsList } }) => ({
+const mapStateToProps = ({ products: { loading, productsList } }) => ({
+  loading,
   productsList,
 });
 
