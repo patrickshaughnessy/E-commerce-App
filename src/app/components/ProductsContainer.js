@@ -28,7 +28,6 @@ class _ProductsContainer extends Component {
 
     return (
       <div className="container">
-        {/* <Loading message="Hang on, we're loading products" /> */}
         {productRows.map(productRow => (
           <div key={v4()} className="card-columns">
             {productRow.map(product => (

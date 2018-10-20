@@ -1,6 +1,7 @@
 const { products } = require('../controllers');
 
 const configureRoutes = app => {
+  app.get('/api/products/:id', products.fetchOne);
   app.get('/api/products', products.fetchAll);
 };
 

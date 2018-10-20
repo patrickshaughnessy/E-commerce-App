@@ -10,7 +10,7 @@ const App = () => (
     <div>
       <NavBar />
       <Route exact path="/" component={Home} />
-      <Route path="/product/:productId" component={ProductInfo} />
+      <Route path="/products/:productId" component={ProductInfo} />
     </div>
   </Router>
 );
