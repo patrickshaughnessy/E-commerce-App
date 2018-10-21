@@ -1,240 +1,234 @@
 [
   {
-    "price": 37.9,
-    "salePrice": 34.11,
+    "price": 11.66,
+    "salePrice": 10.49,
     "category": "electronics",
     "name": "HDMI Cable",
-    "shortDescription": "Lorem consectetur velit irure eu pariatur ad occaecat nisi consequat fugiat nostrud ipsum do. Ad fugiat ut veniam officia qui cillum pariatur laboris irure id labore esse ipsum. Ipsum et ad aliquip culpa consequat occaecat laborum.",
+    "shortDescription": "Consectetur ut consectetur et exercitation.",
     "longDescription": [
-      "Voluptate cupidatat eiusmod deserunt duis. Sit et velit quis duis quis. Duis aliqua aute labore id exercitation irure dolor. Duis nulla esse aute ex voluptate velit aliqua ea cillum deserunt cillum. Lorem ullamco mollit elit Lorem sit deserunt. Non deserunt qui incididunt mollit culpa mollit dolor qui nulla et sunt sit. Minim reprehenderit laboris nostrud sint velit ipsum ipsum.",
-      "Ipsum elit nostrud qui fugiat ex occaecat ullamco consequat voluptate ea. Aliqua ullamco reprehenderit fugiat occaecat sunt mollit. Veniam ut consequat id occaecat cupidatat pariatur. Voluptate exercitation ex elit pariatur laboris do consectetur. Pariatur ex ullamco labore est eiusmod duis in quis incididunt. Quis nisi ipsum exercitation veniam dolor pariatur eiusmod commodo cupidatat."
+      "Cupidatat culpa esse cupidatat duis ex amet incididunt irure tempor eu Lorem ad enim. Nisi aliquip cillum sint eiusmod in. Consectetur elit tempor occaecat nostrud qui occaecat reprehenderit et eu excepteur nisi in. Ad pariatur est velit enim excepteur pariatur ut pariatur mollit proident. Do fugiat ex eu ullamco exercitation proident commodo velit excepteur tempor laborum ex."
     ],
     "images": [
-      "https://via.placeholder.com/200/A81118/FFFFFF/?text=HDMI+Cable",
-      "https://via.placeholder.com/200/FE4FA4/FFFFFF/?text=HDMI+Cable",
-      "https://via.placeholder.com/200/922051/FFFFFF/?text=HDMI+Cable",
-      "https://via.placeholder.com/200/B8F827/000000/?text=HDMI+Cable",
-      "https://via.placeholder.com/200/1FF0D0/FFFFFF/?text=HDMI+Cable"
+      "https://via.placeholder.com/200/7195FE/FFFFFF/?text=HDMI+Cable",
+      "https://via.placeholder.com/200/7513D0/FFFFFF/?text=HDMI+Cable",
+      "https://via.placeholder.com/200/D54905/FFFFFF/?text=HDMI+Cable",
+      "https://via.placeholder.com/200/086C65/FFFFFF/?text=HDMI+Cable",
+      "https://via.placeholder.com/200/8D33D0/FFFFFF/?text=HDMI+Cable"
     ]
   },
   {
-    "price": 20.6,
-    "salePrice": 18.54,
+    "price": 8.92,
+    "salePrice": null,
     "category": "electronics",
     "name": "Speakers",
-    "shortDescription": "Sunt pariatur mollit et consequat enim id ad.",
+    "shortDescription": "Labore velit commodo anim laborum laboris Lorem. Minim aliqua eiusmod enim sit nisi. Et culpa pariatur aliquip nulla sit velit. Lorem deserunt minim do irure do labore est ullamco anim amet duis ullamco. Aute qui ipsum consequat dolor.",
     "longDescription": [
-      "Officia dolore anim velit sit anim sunt amet. Dolore laboris minim ea culpa dolor cupidatat ex eiusmod id sit consequat ullamco. Id non nisi eu deserunt. Laborum consectetur id irure tempor ad Lorem elit proident mollit quis officia qui. Pariatur veniam sit consectetur dolor. Elit sunt consectetur dolore sit cillum excepteur et fugiat nulla quis elit sint sint amet. Quis quis esse commodo irure amet velit et.",
-      "Tempor laborum ea elit exercitation amet sint officia cillum ut magna occaecat. Eu esse quis commodo enim dolor cillum est dolor exercitation culpa. Ut minim fugiat culpa pariatur deserunt aliquip excepteur consectetur ut ut amet commodo duis elit. Quis laborum enim sit minim laborum sit eu dolore excepteur esse ipsum ut. Esse exercitation id officia veniam incididunt exercitation elit adipisicing. Enim ipsum excepteur dolor sint mollit velit Lorem esse deserunt laboris proident dolor aliqua. Duis esse irure laborum ullamco.",
-      "Dolore duis anim cillum incididunt laborum eiusmod amet officia sint ex ad minim. Ipsum magna cupidatat Lorem nulla velit sint voluptate aliquip do dolore irure ipsum minim ipsum. Nisi fugiat ipsum id aute reprehenderit sint velit aliquip. Anim aliqua duis eu aliquip dolore sint veniam. Enim deserunt irure pariatur exercitation do eu velit aliquip. Ad deserunt elit minim anim. Reprehenderit aliqua anim dolor sit.",
-      "Occaecat incididunt cupidatat culpa esse minim proident cillum occaecat mollit occaecat consequat culpa aute. Est minim id deserunt do veniam adipisicing Lorem quis voluptate. Cupidatat consectetur proident consequat veniam ea laborum. Sint do aliquip sunt aliqua dolor dolore magna Lorem voluptate."
+      "Ullamco consectetur magna velit dolor excepteur proident ea nostrud. Elit non ut consequat aliquip mollit aute in officia cupidatat dolore. Consectetur sunt sit nulla nisi pariatur ullamco esse magna. Ea Lorem elit ipsum quis cillum veniam."
     ],
     "images": [
-      "https://via.placeholder.com/200/AF6EFE/FFFFFF/?text=Speakers",
-      "https://via.placeholder.com/200/691C11/FFFFFF/?text=Speakers",
-      "https://via.placeholder.com/200/D5B6CC/000000/?text=Speakers",
-      "https://via.placeholder.com/200/C7B0AB/FFFFFF/?text=Speakers"
+      "https://via.placeholder.com/200/AE0002/FFFFFF/?text=Speakers",
+      "https://via.placeholder.com/200/2F741A/FFFFFF/?text=Speakers",
+      "https://via.placeholder.com/200/520E43/FFFFFF/?text=Speakers",
+      "https://via.placeholder.com/200/06BF06/FFFFFF/?text=Speakers"
     ]
   },
   {
-    "price": 78.86,
-    "salePrice": 70.97,
+    "price": 18.75,
+    "salePrice": 16.88,
     "category": "electronics",
     "name": "Mouse",
-    "shortDescription": "Consequat duis eu reprehenderit culpa elit occaecat non.",
+    "shortDescription": "Do sit cillum id voluptate magna cillum cillum deserunt.",
     "longDescription": [
-      "Ex officia esse sint ut nostrud aute et enim. Voluptate Lorem dolor incididunt tempor irure sunt. Duis reprehenderit cupidatat velit id quis ipsum laboris cillum labore quis ut irure. Laboris velit irure id excepteur nisi ad velit dolore voluptate eiusmod. Nulla sit sint non sint voluptate."
+      "Ad sit minim nostrud dolor est et non amet dolore labore commodo laboris. Commodo cillum voluptate velit voluptate voluptate fugiat. Aliqua ea deserunt proident mollit ullamco in amet sit. Aliquip ut commodo non reprehenderit aliquip proident incididunt pariatur. Duis eiusmod excepteur adipisicing aliquip aute tempor ipsum irure id nostrud fugiat consectetur sit.",
+      "Ut Lorem pariatur excepteur deserunt sunt incididunt culpa in. Ipsum enim dolore magna ad ea elit esse qui do adipisicing est. Proident eu eiusmod velit do. Voluptate aute nisi ullamco nostrud consectetur. Sunt do est sit voluptate ad culpa pariatur nostrud duis aute consectetur. Anim in ad enim adipisicing magna amet ipsum ipsum. Aute aute officia id dolor pariatur ad cupidatat incididunt ullamco incididunt exercitation consequat anim pariatur.",
+      "Consectetur eiusmod magna tempor deserunt fugiat mollit dolor ad aliqua cupidatat sunt. Aliqua fugiat aute sint laboris pariatur nisi. Ullamco sint ullamco exercitation laborum reprehenderit enim do ex. Minim aliquip nisi sint reprehenderit nisi. Quis quis consequat sint proident ad consectetur commodo aliqua id anim nulla. Ullamco labore officia voluptate anim tempor. Sint enim non sit deserunt reprehenderit occaecat ex duis."
     ],
     "images": [
-      "https://via.placeholder.com/200/081FFB/FFFFFF/?text=Mouse",
-      "https://via.placeholder.com/200/F56BD0/FFFFFF/?text=Mouse",
-      "https://via.placeholder.com/200/948BB9/FFFFFF/?text=Mouse",
-      "https://via.placeholder.com/200/2BC996/FFFFFF/?text=Mouse"
+      "https://via.placeholder.com/200/D67235/FFFFFF/?text=Mouse",
+      "https://via.placeholder.com/200/5F45F9/FFFFFF/?text=Mouse",
+      "https://via.placeholder.com/200/6B615D/FFFFFF/?text=Mouse",
+      "https://via.placeholder.com/200/DF67AF/FFFFFF/?text=Mouse"
     ]
   },
   {
-    "price": 37.5,
-    "salePrice": 33.75,
+    "price": 82.43,
+    "salePrice": 74.19,
     "category": "electronics",
     "name": "Mouse Pad",
-    "shortDescription": "Dolore nisi pariatur nisi tempor. Magna quis irure culpa occaecat deserunt veniam nostrud. Quis irure culpa laborum ullamco nisi deserunt sit nisi et laboris aute ut. Officia anim irure voluptate labore sint. Et aute proident esse consequat sint sunt anim commodo.",
+    "shortDescription": "Excepteur mollit laboris id veniam sunt fugiat laboris in ut dolore.",
     "longDescription": [
-      "Proident ad Lorem aute esse. Magna non commodo ullamco et pariatur tempor id deserunt cupidatat cupidatat velit. Cillum cupidatat ad in officia ea. Aute ex occaecat labore Lorem excepteur voluptate in deserunt culpa. Veniam deserunt qui ullamco proident laborum et officia. Ipsum do sunt ut nulla magna. Enim eu incididunt excepteur nulla cillum aute exercitation labore qui ullamco nisi excepteur sit.",
-      "Incididunt tempor cupidatat culpa commodo. Pariatur commodo est eiusmod in eiusmod magna aute ullamco nulla amet esse aliqua. Laborum adipisicing eu adipisicing consectetur nulla excepteur anim.",
-      "Aliqua ullamco cillum sunt dolor fugiat exercitation nostrud in nulla fugiat exercitation sunt. Reprehenderit laborum veniam commodo duis occaecat dolor occaecat incididunt duis. Labore sint labore aliquip ad ex tempor qui aute qui laboris esse irure deserunt occaecat. Dolor id fugiat consequat nisi in esse officia tempor veniam.",
-      "Tempor velit dolor proident quis laboris cupidatat consequat. Sint ullamco amet ut labore aliqua laboris Lorem qui irure officia laboris nulla adipisicing. Do cupidatat ex ad fugiat duis. Eu reprehenderit consequat laboris nulla eiusmod in anim amet ut. Fugiat nisi reprehenderit mollit magna nulla consectetur magna. Dolor in officia voluptate quis excepteur pariatur labore commodo qui ullamco ea consequat excepteur. Cupidatat voluptate in anim tempor Lorem laboris cillum nisi."
+      "Aliqua enim qui qui eiusmod amet. Esse minim occaecat magna Lorem laboris reprehenderit ad. Excepteur consequat minim excepteur ut ullamco enim sit exercitation dolore fugiat fugiat sunt ad.",
+      "Mollit elit culpa dolore adipisicing magna deserunt aliqua est minim aute dolore. Reprehenderit cillum qui amet aliqua reprehenderit do deserunt proident velit ipsum. Amet consequat culpa pariatur aute incididunt. Ut elit et dolore ut ut velit aliqua quis qui eu mollit ad quis. Amet ullamco Lorem sunt enim est sint. Dolore sint cillum eiusmod aliquip.",
+      "Sunt ullamco mollit consectetur qui ad. Eu irure dolor aliquip do. Velit pariatur tempor irure do sint magna reprehenderit et nulla.",
+      "Sit irure eiusmod consequat duis sit incididunt eiusmod voluptate deserunt reprehenderit ea excepteur in incididunt. Laborum consequat occaecat ad excepteur voluptate ullamco exercitation do veniam in sit laborum. In ex deserunt mollit irure nostrud cillum minim esse qui labore magna aute."
     ],
     "images": [
-      "https://via.placeholder.com/200/89DB43/FFFFFF/?text=Mouse+Pad",
-      "https://via.placeholder.com/200/13D49E/FFFFFF/?text=Mouse+Pad",
-      "https://via.placeholder.com/200/C5C960/000000/?text=Mouse+Pad",
-      "https://via.placeholder.com/200/60F4AA/000000/?text=Mouse+Pad",
-      "https://via.placeholder.com/200/6841AE/FFFFFF/?text=Mouse+Pad"
+      "https://via.placeholder.com/200/CF1EA9/FFFFFF/?text=Mouse+Pad",
+      "https://via.placeholder.com/200/C497B5/FFFFFF/?text=Mouse+Pad",
+      "https://via.placeholder.com/200/18BE28/FFFFFF/?text=Mouse+Pad",
+      "https://via.placeholder.com/200/0D051D/FFFFFF/?text=Mouse+Pad",
+      "https://via.placeholder.com/200/D3CD96/000000/?text=Mouse+Pad"
     ]
   },
   {
-    "price": 19.55,
-    "salePrice": 17.59,
+    "price": 74.4,
+    "salePrice": 66.96,
     "category": "electronics",
     "name": "Power Cord",
-    "shortDescription": "Irure aliqua aliqua velit aliquip proident id proident irure deserunt duis laborum nisi. Quis reprehenderit ex et mollit veniam proident sint reprehenderit dolore cupidatat commodo. Pariatur in cupidatat mollit exercitation. Ipsum qui veniam id occaecat tempor velit pariatur ut amet duis do voluptate.",
+    "shortDescription": "Nulla labore est elit ipsum nisi officia voluptate exercitation qui occaecat cillum pariatur esse in. Amet dolore reprehenderit esse adipisicing cupidatat elit do. Culpa incididunt eiusmod sint ut commodo exercitation id eu nostrud nostrud enim laboris.",
     "longDescription": [
-      "Reprehenderit commodo eiusmod reprehenderit eiusmod minim laborum magna ea non labore aute veniam sit. Commodo consectetur tempor ea et aliqua. Incididunt nostrud magna aliqua quis. Eu amet commodo incididunt tempor excepteur eiusmod eu laboris quis proident cillum. Laborum ut et reprehenderit duis ipsum incididunt mollit ipsum in id. Incididunt officia Lorem enim cillum id ea est proident labore excepteur. Veniam quis occaecat non elit irure ut.",
-      "Dolore elit reprehenderit ipsum consequat pariatur officia adipisicing minim. Sint mollit aliquip officia cillum exercitation dolore excepteur aliqua est ullamco in. Ullamco quis est non adipisicing velit quis aute ad commodo culpa. Voluptate velit labore nulla tempor qui non proident commodo dolore ullamco sit minim. Voluptate deserunt incididunt aliqua officia quis aliqua culpa exercitation ullamco dolore nulla. Irure aute nostrud ea cupidatat minim cupidatat aliqua in ullamco.",
-      "Officia ipsum occaecat Lorem mollit ut sint non sit culpa enim elit dolore. Proident ut laborum labore enim adipisicing nisi deserunt aute in labore ad Lorem. Incididunt esse sint pariatur nisi proident est veniam in nostrud velit anim reprehenderit non laboris. Id et in excepteur duis commodo minim aliquip velit. Sunt reprehenderit qui aliqua occaecat aliqua labore aliqua labore laborum nisi exercitation cillum culpa.",
-      "Cillum tempor incididunt nulla Lorem occaecat cupidatat deserunt. Minim amet adipisicing laboris magna nulla aliquip labore ex reprehenderit irure officia. Officia quis consectetur sit veniam velit cillum. Dolore nostrud ullamco laboris sint officia mollit occaecat dolore nulla non pariatur. Id et pariatur qui non exercitation tempor magna amet consequat veniam nulla. Ea sunt mollit pariatur fugiat. Ea dolore do proident cupidatat incididunt consectetur do."
+      "Dolore qui sunt occaecat do laboris ullamco elit exercitation sunt. Eiusmod officia Lorem nisi esse qui incididunt id non duis ad ex culpa elit amet. Officia sint tempor ad ad. Irure ullamco commodo nisi aute consequat. Magna est id cupidatat fugiat ad exercitation consectetur. Ex tempor consequat proident sit ut anim deserunt est magna laboris esse. Nostrud quis est et duis ullamco velit aliquip consectetur et aliqua id.",
+      "Incididunt incididunt ipsum velit amet nostrud eiusmod dolor nostrud aute. Voluptate do adipisicing sit commodo veniam consectetur enim mollit enim adipisicing sit veniam. Aute consectetur do minim in sit. Non aliquip do laboris dolor amet est. Irure occaecat id magna cupidatat fugiat cupidatat."
     ],
     "images": [
-      "https://via.placeholder.com/200/E6A0CD/000000/?text=Power+Cord",
-      "https://via.placeholder.com/200/013553/FFFFFF/?text=Power+Cord",
-      "https://via.placeholder.com/200/492364/FFFFFF/?text=Power+Cord",
-      "https://via.placeholder.com/200/A3825A/FFFFFF/?text=Power+Cord"
+      "https://via.placeholder.com/200/CE6F7A/FFFFFF/?text=Power+Cord",
+      "https://via.placeholder.com/200/30DDF5/FFFFFF/?text=Power+Cord",
+      "https://via.placeholder.com/200/7F3488/FFFFFF/?text=Power+Cord",
+      "https://via.placeholder.com/200/8544F4/FFFFFF/?text=Power+Cord",
+      "https://via.placeholder.com/200/0701CA/FFFFFF/?text=Power+Cord"
     ]
   },
   {
-    "price": 58.79,
-    "salePrice": 52.91,
+    "price": 22.22,
+    "salePrice": 20,
     "category": "electronics",
     "name": "Monitor Stand",
-    "shortDescription": "Minim amet labore voluptate tempor voluptate. Ipsum cillum qui ex magna exercitation dolore tempor. Voluptate esse proident incididunt ad ex eiusmod occaecat. Tempor commodo id cupidatat sint sunt.",
+    "shortDescription": "Aliqua duis aute velit quis anim dolor sunt consectetur occaecat nulla nulla anim fugiat.",
     "longDescription": [
-      "Non ipsum velit magna excepteur. Do sint cillum pariatur Lorem et ut est ipsum. Incididunt est in sunt aliquip dolor labore incididunt excepteur eiusmod aliquip sint. Proident sit qui aliqua deserunt proident magna. Nostrud et labore consectetur deserunt quis laboris minim Lorem laborum duis.",
-      "Reprehenderit mollit incididunt aute anim ipsum anim ea reprehenderit officia ipsum laboris duis dolor. Veniam ea id deserunt sunt aute eu. Ut sit dolor reprehenderit adipisicing esse laborum magna sunt tempor. Labore nulla cupidatat non ad ad eu adipisicing commodo anim veniam. Est cillum non pariatur consectetur eiusmod elit voluptate ad quis."
+      "Amet magna quis pariatur ullamco ex nisi magna ullamco. Irure consectetur dolore aliquip eiusmod. Sint tempor voluptate irure elit aliqua sit. Aliquip sint qui ullamco cillum cupidatat. Aliqua aute laboris sint enim nulla cillum excepteur id aute laboris enim fugiat nostrud sint. Anim ut amet Lorem anim qui eiusmod voluptate.",
+      "Magna do ea eu tempor esse. Ipsum sunt dolor Lorem veniam do exercitation adipisicing. Laboris cillum aliqua aute anim dolore consectetur esse. Enim voluptate enim ipsum ut nostrud consectetur consectetur consectetur est ullamco minim sint. Veniam ullamco esse Lorem elit occaecat id velit fugiat ea duis sint commodo.",
+      "Sunt nulla tempor laborum cupidatat in aute. Aliqua est nostrud non consectetur incididunt irure. Cillum anim adipisicing commodo sunt sunt ad. Ipsum labore mollit est sunt elit ex dolore non veniam eiusmod labore.",
+      "Proident ipsum ut aliquip proident laboris sunt. Nulla magna officia proident occaecat tempor. Elit est ad ut aliqua fugiat duis commodo ex voluptate. Aute cillum nisi occaecat enim elit."
     ],
     "images": [
-      "https://via.placeholder.com/200/B086D2/FFFFFF/?text=Monitor+Stand",
-      "https://via.placeholder.com/200/AFDF8B/000000/?text=Monitor+Stand",
-      "https://via.placeholder.com/200/B842BC/FFFFFF/?text=Monitor+Stand",
-      "https://via.placeholder.com/200/EED566/000000/?text=Monitor+Stand",
-      "https://via.placeholder.com/200/8FF76E/000000/?text=Monitor+Stand"
+      "https://via.placeholder.com/200/67711C/FFFFFF/?text=Monitor+Stand",
+      "https://via.placeholder.com/200/BE6BFD/FFFFFF/?text=Monitor+Stand",
+      "https://via.placeholder.com/200/D2B3F6/000000/?text=Monitor+Stand",
+      "https://via.placeholder.com/200/5793C1/FFFFFF/?text=Monitor+Stand",
+      "https://via.placeholder.com/200/8734AE/FFFFFF/?text=Monitor+Stand"
     ]
   },
   {
-    "price": 36.16,
-    "salePrice": 32.54,
+    "price": 45.14,
+    "salePrice": 40.63,
     "category": "home",
     "name": "Broom",
-    "shortDescription": "Ea ad ullamco excepteur dolore. Labore aliquip labore culpa pariatur aliqua sunt quis deserunt.",
+    "shortDescription": "Sit laboris consequat ex tempor mollit reprehenderit culpa non. Dolor do irure id dolor do pariatur pariatur ipsum adipisicing non consequat. Aliquip deserunt excepteur eiusmod et nostrud consectetur tempor officia in aliqua ex cillum.",
     "longDescription": [
-      "Laborum anim id et ipsum incididunt duis excepteur ex exercitation ipsum. Eiusmod nisi officia commodo labore ea est dolore incididunt cupidatat Lorem. Consequat non fugiat est fugiat mollit. Magna excepteur ea eu elit est et ullamco ullamco ipsum officia aliqua. Laboris aliquip est esse eiusmod irure sint esse esse ea. Qui ullamco cupidatat sunt et consectetur dolor proident id ea ea ipsum.",
-      "Nulla deserunt minim minim est incididunt velit id tempor. Non amet exercitation aute id duis officia veniam do ipsum aliqua. Velit qui ex aute ex aliqua nisi enim irure eiusmod labore culpa laborum. Ipsum pariatur excepteur occaecat amet aute in fugiat dolore. Adipisicing labore occaecat sit labore elit est ullamco aliquip non proident. Non adipisicing consequat cupidatat adipisicing exercitation enim proident et do laboris eiusmod."
+      "Consequat minim fugiat aute veniam duis sit aliquip aliquip sit voluptate qui mollit et. Dolore cupidatat ipsum sit nulla Lorem excepteur irure et do ad elit nulla consequat amet. Est ea nisi minim cupidatat."
     ],
     "images": [
-      "https://via.placeholder.com/200/838871/FFFFFF/?text=Broom",
-      "https://via.placeholder.com/200/55483B/FFFFFF/?text=Broom",
-      "https://via.placeholder.com/200/408173/FFFFFF/?text=Broom",
-      "https://via.placeholder.com/200/5D2E73/FFFFFF/?text=Broom"
+      "https://via.placeholder.com/200/3D759E/FFFFFF/?text=Broom",
+      "https://via.placeholder.com/200/BAB178/FFFFFF/?text=Broom",
+      "https://via.placeholder.com/200/C60C3E/FFFFFF/?text=Broom",
+      "https://via.placeholder.com/200/C9EBE0/000000/?text=Broom",
+      "https://via.placeholder.com/200/C53E19/FFFFFF/?text=Broom"
     ]
   },
   {
-    "price": 79.64,
-    "salePrice": 71.68,
+    "price": 91.41,
+    "salePrice": 82.27,
     "category": "home",
     "name": "Mop",
-    "shortDescription": "Labore sint sit dolor est ut velit aute sunt fugiat aliqua.",
+    "shortDescription": "Elit duis est fugiat sit eiusmod incididunt ea magna deserunt dolore esse elit duis sit. Quis sit veniam qui sint. Quis minim aliquip deserunt aute et eu sit irure occaecat nostrud nisi eu reprehenderit. Culpa duis culpa labore fugiat culpa dolore labore irure est ex id minim qui. Non in et adipisicing mollit nisi aute veniam proident nostrud incididunt.",
     "longDescription": [
-      "Nulla ullamco ea nisi amet ullamco nostrud culpa ullamco minim eiusmod duis commodo magna. Nostrud nostrud irure qui magna esse proident id esse est mollit Lorem culpa nostrud quis. Voluptate veniam quis deserunt nisi culpa ad fugiat. Sunt dolor velit mollit in Lorem ex reprehenderit amet.",
-      "Proident cillum minim sit consectetur amet tempor eiusmod sit. Aliqua quis culpa in aliquip enim commodo cupidatat aute. Consectetur sit voluptate cillum ex. Quis voluptate eu nostrud voluptate enim adipisicing ullamco esse reprehenderit. Est veniam adipisicing incididunt consequat sunt ut dolor nisi duis. Et proident irure mollit commodo commodo.",
-      "Dolore velit esse pariatur veniam est. Nulla aliquip mollit commodo esse minim magna ullamco culpa cupidatat id est esse do labore. Officia eiusmod do cillum tempor velit sint."
+      "Aliquip incididunt qui enim eu velit adipisicing nostrud dolore esse sunt est amet. Irure ipsum cillum deserunt minim id pariatur consectetur. Incididunt ad excepteur reprehenderit pariatur Lorem velit eu velit deserunt voluptate magna irure elit mollit. Tempor sunt fugiat excepteur commodo aliquip excepteur velit et non. Velit tempor commodo consectetur pariatur do est occaecat et velit eu.",
+      "Nulla et laborum culpa laboris veniam eu est dolore veniam cupidatat dolor eiusmod. Aliqua elit amet quis qui et anim minim velit. Amet irure id consequat ipsum dolor ad non. Minim cupidatat minim nulla reprehenderit culpa voluptate occaecat occaecat proident. Excepteur dolore culpa culpa enim ex. Commodo officia consequat ea excepteur laborum magna velit.",
+      "Ea Lorem ex culpa cillum amet sunt ullamco laborum dolore velit nulla voluptate proident. Id aliquip quis nulla laborum tempor officia eiusmod sint tempor nisi pariatur. Ipsum veniam eiusmod voluptate ex. Mollit sint sint deserunt id.",
+      "Eiusmod dolor labore tempor eu ea amet sunt proident. Laboris non proident commodo mollit. Ullamco ullamco excepteur ut consequat Lorem sit aliqua nulla dolore eu culpa dolore cupidatat. Voluptate sint sunt aliqua non laboris eu elit in adipisicing. Pariatur et fugiat eu cillum minim cillum amet."
     ],
     "images": [
-      "https://via.placeholder.com/200/541D5F/FFFFFF/?text=Mop",
-      "https://via.placeholder.com/200/91EF0C/FFFFFF/?text=Mop",
-      "https://via.placeholder.com/200/497729/FFFFFF/?text=Mop",
-      "https://via.placeholder.com/200/5751E6/FFFFFF/?text=Mop",
-      "https://via.placeholder.com/200/8D427B/FFFFFF/?text=Mop"
+      "https://via.placeholder.com/200/6D2824/FFFFFF/?text=Mop",
+      "https://via.placeholder.com/200/8E1A33/FFFFFF/?text=Mop",
+      "https://via.placeholder.com/200/81B456/FFFFFF/?text=Mop",
+      "https://via.placeholder.com/200/04874E/FFFFFF/?text=Mop"
     ]
   },
   {
-    "price": 40.84,
-    "salePrice": 36.76,
+    "price": 17.41,
+    "salePrice": 15.67,
     "category": "home",
     "name": "Dish soap",
-    "shortDescription": "Est id eiusmod ut aute dolor velit ea dolor pariatur laboris. Amet tempor ea elit anim et aliqua pariatur labore.",
+    "shortDescription": "Labore exercitation laborum labore laboris dolor consequat consequat labore voluptate quis ut. In ullamco dolor consequat in ut et ullamco eu anim.",
     "longDescription": [
-      "Eu ut amet Lorem aliqua ea tempor cupidatat officia dolore et. Sunt esse cillum ullamco exercitation tempor officia non mollit non tempor. Irure minim elit cillum dolor proident cupidatat pariatur excepteur voluptate tempor non. Nisi duis voluptate aliqua consequat consectetur eiusmod ipsum dolore esse excepteur deserunt labore duis ullamco. Fugiat deserunt ea laborum consectetur ullamco cupidatat. Cillum occaecat veniam laborum tempor laboris.",
-      "Sit eu aliqua reprehenderit minim cupidatat consectetur in culpa irure. Id consequat reprehenderit nisi anim occaecat enim sit aute deserunt culpa duis. Aliqua minim laboris fugiat incididunt non deserunt deserunt commodo aliquip fugiat est sunt.",
-      "Consequat voluptate esse est enim Lorem laboris amet sint qui aute nisi ex. Sit incididunt reprehenderit nostrud magna enim amet tempor ut officia excepteur velit ad exercitation. Elit eiusmod aute adipisicing non ad fugiat culpa enim laboris laborum pariatur sunt. Consequat labore incididunt duis ipsum nostrud eiusmod nulla est. Irure qui dolore magna reprehenderit consectetur adipisicing nostrud officia officia in ad velit labore enim. Proident deserunt nulla ad nulla eu et minim cupidatat est tempor.",
-      "Aliqua adipisicing magna sit Lorem sit aliquip magna tempor ullamco ad eu. Aliquip cillum nulla adipisicing proident consectetur elit in anim tempor. Est proident tempor quis officia commodo voluptate deserunt do consequat tempor duis voluptate irure excepteur. Do deserunt sunt commodo cillum ipsum cillum nisi reprehenderit exercitation enim fugiat anim minim fugiat."
+      "Qui nostrud ipsum irure aliquip consequat incididunt aliquip incididunt minim. Nisi id excepteur est incididunt proident duis nisi et amet. Duis exercitation qui voluptate proident tempor. Cupidatat quis nisi dolor proident velit ad. Voluptate aliquip qui sint labore amet. Quis aute non aliquip non esse nulla. Proident sint eu enim ipsum aliqua ipsum cupidatat elit."
     ],
     "images": [
-      "https://via.placeholder.com/200/E995B3/FFFFFF/?text=Dish+soap",
-      "https://via.placeholder.com/200/154FF1/FFFFFF/?text=Dish+soap",
-      "https://via.placeholder.com/200/276DBA/FFFFFF/?text=Dish+soap",
-      "https://via.placeholder.com/200/72A43D/FFFFFF/?text=Dish+soap"
+      "https://via.placeholder.com/200/31AFA1/FFFFFF/?text=Dish+soap",
+      "https://via.placeholder.com/200/31428B/FFFFFF/?text=Dish+soap",
+      "https://via.placeholder.com/200/360B72/FFFFFF/?text=Dish+soap",
+      "https://via.placeholder.com/200/F70701/FFFFFF/?text=Dish+soap"
     ]
   },
   {
-    "price": 70.39,
-    "salePrice": 63.35,
+    "price": 78.12,
+    "salePrice": 70.31,
     "category": "home",
     "name": "Sponges",
-    "shortDescription": "Labore nisi labore officia velit labore mollit ad sint. Voluptate minim duis et ex nostrud nulla proident velit duis commodo occaecat sit est. Voluptate reprehenderit officia tempor officia dolor exercitation irure cillum.",
+    "shortDescription": "Lorem do aliqua exercitation commodo in enim ipsum culpa deserunt commodo. Velit fugiat consequat occaecat tempor cupidatat deserunt voluptate mollit non proident eiusmod ea.",
     "longDescription": [
-      "Est id officia ut Lorem non culpa. Magna excepteur dolor non occaecat nisi. Aliqua veniam elit minim nulla consectetur laborum. Quis anim culpa fugiat ex in eu. Mollit aute do adipisicing consequat pariatur sit veniam ut sit."
+      "Nostrud fugiat fugiat fugiat ad incididunt amet. Cillum est adipisicing aliqua sunt minim ex excepteur eu aute dolor qui sint aliquip commodo. Nostrud fugiat in duis elit non do amet nulla consequat excepteur et laboris ut. Non mollit mollit velit culpa.",
+      "Enim culpa amet velit est. Occaecat sunt elit nostrud ipsum velit occaecat. Ex cupidatat dolore eu tempor duis. Ad fugiat in veniam qui excepteur laboris laborum aliqua ullamco in velit aliquip. Nulla consequat amet qui labore officia mollit et commodo proident incididunt dolor et. Aliqua amet qui adipisicing cupidatat nisi voluptate cupidatat consectetur voluptate labore voluptate in fugiat."
     ],
     "images": [
-      "https://via.placeholder.com/200/DBF958/000000/?text=Sponges",
-      "https://via.placeholder.com/200/0F7A16/FFFFFF/?text=Sponges",
-      "https://via.placeholder.com/200/3AB90C/FFFFFF/?text=Sponges",
-      "https://via.placeholder.com/200/CE8AAB/FFFFFF/?text=Sponges",
-      "https://via.placeholder.com/200/2EDE20/FFFFFF/?text=Sponges"
+      "https://via.placeholder.com/200/5DD042/FFFFFF/?text=Sponges",
+      "https://via.placeholder.com/200/0A67D6/FFFFFF/?text=Sponges",
+      "https://via.placeholder.com/200/577C39/FFFFFF/?text=Sponges",
+      "https://via.placeholder.com/200/A5C6E1/000000/?text=Sponges",
+      "https://via.placeholder.com/200/C3D681/000000/?text=Sponges"
     ]
   },
   {
-    "price": 72.2,
-    "salePrice": 64.98,
+    "price": 24.87,
+    "salePrice": 22.38,
     "category": "home",
     "name": "Laundry detergent",
-    "shortDescription": "Eiusmod ea culpa proident mollit eu eu laborum occaecat nostrud exercitation nulla do.",
+    "shortDescription": "Cupidatat ea culpa laboris labore consequat et veniam aute. Commodo laboris reprehenderit laborum duis laborum enim anim Lorem in. Pariatur aliquip in minim voluptate aliqua irure ad laboris culpa mollit cupidatat non duis. Nostrud labore excepteur aute exercitation amet id.",
     "longDescription": [
-      "Nulla ullamco aliquip dolore ipsum consectetur commodo non qui. Mollit minim ex cillum ut mollit cupidatat. Cillum esse proident qui velit nisi ad ex.",
-      "Do culpa esse proident velit cillum id qui ea. Anim mollit nostrud aliquip in culpa laborum consectetur veniam magna est. Aliqua fugiat officia aliqua nostrud anim ipsum fugiat ea irure. Ex sint nisi laborum aliqua do culpa mollit duis est voluptate. Amet nulla fugiat incididunt aliqua sunt aliquip. Fugiat voluptate minim labore non ex incididunt adipisicing aliquip nisi mollit. Proident qui fugiat veniam minim aute elit anim exercitation ullamco do sit sint.",
-      "Nisi ut qui aute consequat enim est aute fugiat esse nisi laborum voluptate voluptate. Dolor laboris enim ullamco cupidatat qui exercitation enim in tempor aliquip anim dolore nulla aliquip. Proident quis ut commodo labore velit culpa cillum laboris do anim velit. Anim laborum consectetur proident ullamco minim Lorem labore consectetur duis irure amet eiusmod sint.",
-      "Nisi laborum elit ex elit excepteur culpa cupidatat non nisi et. Consectetur incididunt labore ut irure aliquip consequat anim culpa occaecat consectetur sit aute. Lorem esse dolore ipsum ut est id commodo irure. Ullamco pariatur ad reprehenderit deserunt irure quis pariatur elit aliquip commodo irure dolor. Reprehenderit veniam eiusmod dolore cillum aliquip dolore velit cillum velit non adipisicing ea consequat. Deserunt amet duis consequat est occaecat consectetur incididunt. Quis magna proident in adipisicing."
+      "Exercitation sit ea veniam pariatur. Veniam Lorem dolor id culpa. Dolore anim mollit sint sint dolore officia minim ullamco proident pariatur. Proident officia adipisicing adipisicing do. Esse amet excepteur incididunt fugiat ea anim sit consequat enim in reprehenderit sit eu ullamco. Sint aliquip incididunt cillum minim culpa ut officia.",
+      "Duis nostrud exercitation tempor culpa mollit dolore. Cupidatat nostrud fugiat irure qui magna pariatur eu sit ut cupidatat laborum nisi eiusmod. Aliquip magna occaecat consequat eu voluptate in eiusmod enim consectetur laboris id dolore id reprehenderit. Sit elit Lorem sunt dolor reprehenderit. Cillum ipsum sit magna anim in elit aute exercitation cillum. Ullamco cillum consectetur elit et minim mollit. Eiusmod voluptate est anim tempor adipisicing nulla nulla officia ea occaecat.",
+      "Minim occaecat fugiat do ad qui. Elit ad consectetur non quis aute deserunt. Enim esse deserunt adipisicing elit nostrud incididunt aliquip ullamco anim officia consequat ea sunt. Ad aute et qui velit. Tempor veniam ipsum consequat sunt sint proident. Consectetur fugiat amet occaecat duis eiusmod magna qui.",
+      "Incididunt non incididunt amet sunt commodo ipsum eiusmod est exercitation fugiat ut. Incididunt velit dolore pariatur do reprehenderit voluptate amet aliqua magna ea. Tempor do laborum et cupidatat duis tempor nulla do deserunt laboris proident qui veniam. Incididunt aute reprehenderit voluptate pariatur minim nisi labore consequat ea. Irure labore amet esse ad et amet ea mollit laborum in velit incididunt."
     ],
     "images": [
-      "https://via.placeholder.com/200/97F1D7/000000/?text=Laundry+detergent",
-      "https://via.placeholder.com/200/118D56/FFFFFF/?text=Laundry+detergent",
-      "https://via.placeholder.com/200/9C468E/FFFFFF/?text=Laundry+detergent",
-      "https://via.placeholder.com/200/56DE7C/FFFFFF/?text=Laundry+detergent",
-      "https://via.placeholder.com/200/582E53/FFFFFF/?text=Laundry+detergent"
+      "https://via.placeholder.com/200/558889/FFFFFF/?text=Laundry+detergent",
+      "https://via.placeholder.com/200/5D0722/FFFFFF/?text=Laundry+detergent",
+      "https://via.placeholder.com/200/1A43DE/FFFFFF/?text=Laundry+detergent",
+      "https://via.placeholder.com/200/7DC0B7/FFFFFF/?text=Laundry+detergent"
     ]
   },
   {
-    "price": 53.49,
-    "salePrice": 48.14,
+    "price": 30.29,
+    "salePrice": 27.26,
     "category": "home",
     "name": "Iron",
-    "shortDescription": "Duis ipsum qui mollit consectetur mollit et.",
+    "shortDescription": "Voluptate aliqua non ad tempor qui fugiat do aliquip ipsum officia et sit anim.",
     "longDescription": [
-      "Enim aliquip esse sunt id non. Dolor magna aliqua excepteur laboris eu velit adipisicing voluptate fugiat. Cupidatat magna do incididunt qui qui fugiat ut fugiat est exercitation nostrud nostrud minim.",
-      "Anim sit exercitation qui est ipsum in et aute nostrud consequat magna laborum reprehenderit qui. Minim ad ullamco pariatur culpa dolor qui et incididunt elit est incididunt sunt in. Eiusmod ipsum quis enim veniam officia occaecat ut reprehenderit labore minim in laborum. Tempor ullamco irure culpa eu do eiusmod ut mollit velit sint cillum. Reprehenderit voluptate ad aliqua laborum reprehenderit ad do quis.",
-      "Voluptate fugiat tempor sint voluptate excepteur enim laboris adipisicing laborum id aliquip commodo cupidatat culpa. Ea ex incididunt cillum veniam elit ut velit duis magna nisi eiusmod. Magna consectetur eiusmod consequat est cupidatat elit quis et aliquip laboris deserunt adipisicing sunt non. Veniam mollit dolor nostrud sit cillum dolore incididunt aute cupidatat consequat laborum eu aute. Lorem ipsum nostrud est ipsum eiusmod elit id mollit ipsum proident commodo ipsum ea.",
-      "Aute Lorem duis minim sit reprehenderit laboris occaecat. Sint cillum do enim deserunt anim adipisicing labore duis enim. Aliqua minim ullamco tempor ullamco qui et laborum incididunt duis in. Lorem culpa eiusmod ad dolore non id irure voluptate magna commodo. Irure laboris nostrud mollit non ex."
+      "Lorem occaecat labore tempor id. Magna do qui nisi id dolore duis excepteur veniam aliquip qui minim est. Cillum qui ullamco in aliquip proident non esse Lorem tempor reprehenderit reprehenderit exercitation cillum. Exercitation ex consectetur cillum nostrud aute ullamco. Fugiat esse culpa culpa eu qui velit aliquip eiusmod.",
+      "Laboris anim deserunt duis velit est est. Voluptate non Lorem nulla pariatur. In ullamco elit magna deserunt. Officia adipisicing est aliquip labore cupidatat non culpa anim ex qui quis irure. Eiusmod voluptate quis incididunt dolore excepteur non nisi exercitation. Magna id sunt esse ipsum quis ad Lorem. Commodo labore dolor mollit sunt reprehenderit minim sint minim nostrud anim duis aute cillum."
     ],
     "images": [
-      "https://via.placeholder.com/200/8478B5/FFFFFF/?text=Iron",
-      "https://via.placeholder.com/200/3AF8AC/FFFFFF/?text=Iron",
-      "https://via.placeholder.com/200/216A0F/FFFFFF/?text=Iron",
-      "https://via.placeholder.com/200/AA56B2/FFFFFF/?text=Iron",
-      "https://via.placeholder.com/200/E6E2F6/000000/?text=Iron"
+      "https://via.placeholder.com/200/536D81/FFFFFF/?text=Iron",
+      "https://via.placeholder.com/200/A5A9C5/FFFFFF/?text=Iron",
+      "https://via.placeholder.com/200/554451/FFFFFF/?text=Iron",
+      "https://via.placeholder.com/200/1E3508/FFFFFF/?text=Iron"
     ]
   },
   {
-    "price": 56.21,
-    "salePrice": 50.59,
+    "price": 57.6,
+    "salePrice": 51.84,
     "category": "home",
     "name": "Towels",
-    "shortDescription": "In sunt duis elit eiusmod veniam aliquip et reprehenderit sit ex elit commodo excepteur. Labore magna occaecat aliqua reprehenderit deserunt consectetur. Mollit pariatur laboris ullamco occaecat. Consequat minim dolor labore nostrud elit occaecat elit labore labore voluptate. Magna aute mollit irure consectetur do duis non nisi nostrud culpa.",
+    "shortDescription": "Commodo pariatur cillum fugiat eiusmod proident dolor commodo ex ex reprehenderit est aute. Est ea elit ex mollit ea ex laborum laboris voluptate nisi pariatur velit sint aute. Deserunt dolor deserunt magna eu amet ad velit consectetur aliqua qui ex. Consequat voluptate exercitation mollit laboris.",
     "longDescription": [
-      "Eu deserunt ea adipisicing quis. Elit duis amet ea sit quis pariatur. Incididunt ipsum eu voluptate duis ut. Sit eu laboris sunt aliqua eiusmod commodo velit eiusmod aliquip dolor. Qui sunt id velit proident fugiat do ex."
+      "Est aute quis in occaecat Lorem deserunt aliquip aute ullamco adipisicing quis laborum minim do. Minim do in quis esse eiusmod nisi. Sint elit ad deserunt cupidatat fugiat dolor.",
+      "Tempor cillum veniam adipisicing aliqua labore mollit do ad est id ullamco. Dolor officia commodo exercitation labore incididunt enim sint occaecat veniam ipsum reprehenderit deserunt do eu. Labore cupidatat culpa esse esse."
     ],
     "images": [
-      "https://via.placeholder.com/200/37FCF5/000000/?text=Towels",
-      "https://via.placeholder.com/200/864E58/FFFFFF/?text=Towels",
-      "https://via.placeholder.com/200/3BD9AA/FFFFFF/?text=Towels",
-      "https://via.placeholder.com/200/89B75D/FFFFFF/?text=Towels"
+      "https://via.placeholder.com/200/E5AF68/FFFFFF/?text=Towels",
+      "https://via.placeholder.com/200/27AA51/FFFFFF/?text=Towels",
+      "https://via.placeholder.com/200/3A3235/FFFFFF/?text=Towels",
+      "https://via.placeholder.com/200/F53259/FFFFFF/?text=Towels"
     ]
   }
 ]
