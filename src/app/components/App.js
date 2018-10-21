@@ -1,19 +1,44 @@
-import React from 'react';
+import React, { Component } from 'react';
 import { BrowserRouter as Router, Route } from 'react-router-dom';
+import { connect } from 'react-redux';
 
 import NavBar from './NavBar';
 import Home from './Home';
 import ProductInfo from './ProductInfo';
 import Login from './Login';
 
-const App = () => (
-  <Router>
-    <div>
-      <NavBar />
-      <Route exact path="/" component={Home} />
-      <Route path="/products/:productId" component={ProductInfo} />
-      <Route path="/login" component={Login} />
-    </div>
-  </Router>
-);
+import { fetchUser } from '../redux/user/reducer';
+
+export class _App extends Component {
+  componentDidMount() {
+    console.log('didmount');
+    this.props.dispatchFetchUser();
+  }
+
+  render() {
+    return (
+      <Router>
+        <div>
+          <NavBar />
+          <Route exact path="/" component={Home} />
+          <Route path="/products/:productId" component={ProductInfo} />
+          <Route path="/login" component={Login} />
+        </div>
+      </Router>
+    );
+  }
+}
+
+const mapStateToProps = ({ user }) => ({
+  user,
+});
+const mapDispatchToProps = dispatch => ({
+  dispatchFetchUser: fetchUser(dispatch),
+});
+
+const App = connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(_App);
+
 export default App;

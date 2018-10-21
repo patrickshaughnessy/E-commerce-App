@@ -6,7 +6,8 @@ const configureRoutes = app => {
 
   app.post('/api/users/login', users.login, users.sendResponse);
   app.post('/api/users/create', users.create, users.sendResponse);
-  app.get('/api/users/:id', users.fetchOne, users.sendResponse);
+  app.get('/api/users/session', users.fetchSession, users.sendResponse);
+  // app.get('/api/users/:id', users.fetchOne, users.sendResponse);
 
   app.use((err, req, res, next) => {
     res.status(err.status || 500).json({

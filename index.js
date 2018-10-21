@@ -42,6 +42,8 @@ app.use(express.static('dist'));
 
 app.get('*', (req, res) => {
   console.log('rendering', req.method, req.url, req.session.userId);
+  // TODO - SSR refactor
+  // return res.render('index');
   return res.sendFile(path.join(`${__dirname}/dist/index.html`));
 });
 

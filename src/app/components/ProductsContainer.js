@@ -8,7 +8,11 @@ import { fetchProducts } from '../redux/products/reducer';
 
 class _ProductsContainer extends Component {
   componentDidMount() {
-    this.props.dispatchFetchProducts();
+    const { dispatchFetchProducts, productsList, loading } = this.props;
+    // TODO - add error check as well
+    if (!productsList.length && !loading) {
+      dispatchFetchProducts();
+    }
   }
 
   render() {

@@ -1,4 +1,5 @@
 const bcrypt = require('bcrypt');
+const { v4 } = require('uuid');
 
 const { User } = require('../data');
 const { maskEmail } = require('../lib/utils');
@@ -51,11 +52,6 @@ const create = async (req, res, next) => {
   });
 };
 
-const fetchOne = async (req, res) => {
-  const user = await User.findById(req.params.id);
-  res.json(user);
-};
-
 const login = async (req, res, next) => {
   const { email, password } = req.body;
 
@@ -86,20 +82,50 @@ const login = async (req, res, next) => {
   req.user = user;
 
   req.session.userId = user._id;
+  // delete req.session.guest;
+
+  return next();
+};
+
+const fetchSession = async (req, res, next) => {
+  // Fetch user info from loggedin session, then guest session or create new guest session
+  let user = {};
+  if (req.session.userId) {
+    try {
+      user = await User.findById(req.session.userId);
+      user.isLoggedIn = true;
+    } catch (e) {
+      console.log('error fetching user data');
+    }
+  } else if (req.session.guest) {
+    user = req.session.guest;
+  } else {
+    req.session.guest = {
+      _id: v4(),
+    };
+    user = req.session.guest;
+  }
+  req.user = user;
+
+  req.session.cart = req.session.cart || { items: [] };
+  req.cart = req.session.cart;
 
   return next();
 };
 
 const sendResponse = (req, res) => {
-  const { user } = req;
+  const { user, cart } = req;
 
   let responseData = {};
   if (user) {
     responseData = {
-      id: user._id,
-      email: maskEmail(user.email),
-      firstName: user.firstName,
-      lastName: user.lastName,
+      user: {
+        id: user._id,
+        email: maskEmail(user.email),
+        firstName: user.firstName,
+        lastName: user.lastName,
+      },
+      cart,
     };
   }
 
@@ -108,7 +134,7 @@ const sendResponse = (req, res) => {
 
 module.exports = {
   create,
-  fetchOne,
+  fetchSession,
   login,
   sendResponse,
 };
