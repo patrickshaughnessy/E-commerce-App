@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import { compose, withProps } from 'recompose';
 import { v4 } from 'uuid';
 
 import Loading from './Loading';
@@ -7,26 +8,18 @@ import { fetchProduct } from '../redux/products/reducer';
 
 class _ProductInfo extends Component {
   componentDidMount() {
-    const {
-      dispatchFetchProduct,
-      productsById,
-      match: {
-        params: { productId },
-      },
-    } = this.props;
+    const { dispatchFetchProduct, productsById, productId } = this.props;
     if (!productsById[productId]) {
       dispatchFetchProduct(productId);
     }
   }
 
+  onAddClick = () => {
+    console.log('clicked');
+  };
+
   render() {
-    const {
-      loading,
-      productsById,
-      match: {
-        params: { productId },
-      },
-    } = this.props;
+    const { loading, productsById, productId } = this.props;
     const product = productsById[productId];
     if (loading) {
       return <Loading message="Fetching your product" />;
@@ -43,7 +36,11 @@ class _ProductInfo extends Component {
             <h1>{product.name}</h1>
             <h6>{`$${product.price}`}</h6>
             <h5>{product.shortDescription}</h5>
-            <button type="button" className="btn btn-primary">
+            <button
+              type="button"
+              className="btn btn-primary"
+              onClick={this.onAddClick}
+            >
               Add To Cart
             </button>
           </div>
@@ -65,11 +62,21 @@ const mapStateToProps = ({ products: { loading, productsById } }) => ({
 
 const mapDispatchToProps = dispatch => ({
   dispatchFetchProduct: fetchProduct(dispatch),
+  // dispatchAddToCart: addToCart(dispatch),
 });
 
-const ProductInfo = connect(
-  mapStateToProps,
-  mapDispatchToProps
+const ProductInfo = compose(
+  connect(
+    mapStateToProps,
+    mapDispatchToProps
+  ),
+  withProps(({ match: { params: { productId } } }) => {
+    console.log('props', productId);
+    return {
+      hey: 'ho',
+      productId,
+    };
+  })
 )(_ProductInfo);
 
 export default ProductInfo;

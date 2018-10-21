@@ -2,9 +2,11 @@ import { applyMiddleware, createStore, compose, combineReducers } from 'redux';
 import thunkMiddleware from 'redux-thunk';
 
 import { reducer as productsReducer } from './products/reducer';
+import { reducer as userReducer } from './user/reducer';
 
 export const rootReducer = combineReducers({
   products: productsReducer,
+  user: userReducer,
 });
 
 export const configureStore = (initialState = {}) => {

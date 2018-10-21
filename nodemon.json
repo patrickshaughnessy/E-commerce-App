@@ -1,5 +1,5 @@
 {
   "verbose": true,
-  "watch": ["./controllers", "./data", "./routes", "./src"],
+  "watch": ["./controllers", "./data", "./lib", "./routes", "./src"],
   "delay": "300"
 }
