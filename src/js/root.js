@@ -5,10 +5,8 @@ import { Provider } from 'react-redux';
 import { configureStore } from '../app/redux';
 import App from '../app/components/App';
 
+// Required in index.html, but can use either way
 // require('bootstrap/dist/js/bootstrap.min');
-// require('react-transition-group/dist/react-transition-group');
-// require('react-popper/dist/index.umd.min');
-require('reactstrap/dist/reactstrap.min');
 
 const store = configureStore();
 

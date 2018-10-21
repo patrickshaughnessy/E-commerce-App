@@ -1,5 +1,5 @@
 {
   "verbose": true,
-  "ignore": ["./dist"],
+  "watch": ["./controllers", "./data", "./routes", "./src"],
   "delay": "300"
 }
