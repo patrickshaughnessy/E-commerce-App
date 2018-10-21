@@ -2,14 +2,16 @@ const path = require('path');
 const express = require('express');
 const mongoose = require('mongoose');
 const bodyParser = require('body-parser');
+const session = require('express-session');
+const MongoStore = require('connect-mongo')(session);
 
 const configureRoutes = require('./routes');
 
+const dbUrl = 'mongodb://localhost/ecommerceApp';
+const dbOptions = { useNewUrlParser: true };
 mongoose.connect(
-  'mongodb://localhost/ecommerceApp',
-  {
-    useNewUrlParser: true,
-  }
+  dbUrl,
+  dbOptions
 );
 const db = mongoose.connection;
 db.on('error', e => console.error('error connecting to mongodb', e));
@@ -23,6 +25,15 @@ const app = express();
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 
+app.use(
+  session({
+    secret: 'ecommerceAppSessionSecret',
+    resave: false,
+    saveUninitialized: true,
+    store: new MongoStore({ url: dbUrl }),
+  })
+);
+
 // API routes
 configureRoutes(app);
 
@@ -30,7 +41,7 @@ configureRoutes(app);
 app.use(express.static('dist'));
 
 app.get('*', (req, res) => {
-  console.log('rendering');
+  console.log('rendering', req.method, req.url, req.session.userId);
   return res.sendFile(path.join(`${__dirname}/dist/index.html`));
 });
 

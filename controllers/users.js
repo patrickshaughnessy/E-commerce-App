@@ -84,6 +84,9 @@ const login = async (req, res, next) => {
   }
 
   req.user = user;
+
+  req.session.userId = user._id;
+
   return next();
 };
 
