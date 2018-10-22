@@ -80,6 +80,7 @@ const login = async (req, res, next) => {
   }
 
   req.user = user;
+  req.user.isLoggedIn = true;
 
   req.session.userId = user._id;
   // delete req.session.guest;
@@ -119,12 +120,11 @@ const sendResponse = (req, res) => {
   let responseData = {};
   if (user) {
     responseData = {
-      user: {
-        id: user._id,
-        email: maskEmail(user.email),
-        firstName: user.firstName,
-        lastName: user.lastName,
-      },
+      id: user._id,
+      isLoggedIn: user.isLoggedIn,
+      email: maskEmail(user.email),
+      firstName: user.firstName,
+      lastName: user.lastName,
       cart,
     };
   }

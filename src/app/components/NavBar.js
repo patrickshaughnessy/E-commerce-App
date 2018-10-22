@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
-const NavBar = () => (
+const NavBar = ({ isLoggedIn, cart }) => (
   <nav className="navbar navbar-expand-lg navbar-light bg-light">
     <Link to="/" className="navbar-brand">
       A Nice Store
@@ -45,8 +45,11 @@ const NavBar = () => (
         <Link to="/cart" className="nav-item nav-link">
           Cart
         </Link>
-        <Link to="/account" className="nav-item nav-link">
-          Login
+        <Link
+          to={isLoggedIn ? '/account' : '/login'}
+          className="nav-item nav-link"
+        >
+          {isLoggedIn ? 'Account' : 'Login'}
         </Link>
       </div>
     </div>

@@ -16,10 +16,11 @@ export class _App extends Component {
   }
 
   render() {
+    const { user } = this.props;
     return (
       <Router>
         <div>
-          <NavBar />
+          <NavBar isLoggedIn={user.isLoggedIn} />
           <Route exact path="/" component={Home} />
           <Route path="/products/:productId" component={ProductInfo} />
           <Route path="/login" component={Login} />
