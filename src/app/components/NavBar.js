@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
-const NavBar = ({ isLoggedIn, cart }) => (
+const NavBar = ({ user: { isLoggedIn }, logout }) => (
   <nav className="navbar navbar-expand-lg navbar-light bg-light">
     <Link to="/" className="navbar-brand">
       A Nice Store
@@ -29,17 +29,6 @@ const NavBar = ({ isLoggedIn, cart }) => (
         <Link to="/about" className="nav-item nav-link">
           About
         </Link>
-        {/* <form className="nav-item form-inline">
-          <input
-            className="form-control mr-sm-2"
-            type="search"
-            placeholder="Search"
-            aria-label="Search"
-          />
-          <button className="btn btn-sm btn-outline-success" type="submit">
-            Search
-          </button>
-        </form> */}
       </div>
       <div className="nav justify-content-end">
         <Link to="/cart" className="nav-item nav-link">
@@ -51,6 +40,16 @@ const NavBar = ({ isLoggedIn, cart }) => (
         >
           {isLoggedIn ? 'Account' : 'Login'}
         </Link>
+        {isLoggedIn ? (
+          <button
+            type="button"
+            href="#"
+            className="btn btn-link nav-item nav-link"
+            onClick={logout}
+          >
+            Logout
+          </button>
+        ) : null}
       </div>
     </div>
   </nav>

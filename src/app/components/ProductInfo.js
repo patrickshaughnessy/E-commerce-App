@@ -5,6 +5,7 @@ import { v4 } from 'uuid';
 
 import Loading from './Loading';
 import { fetchProduct } from '../redux/products/reducer';
+import { addToCart } from '../redux/user/reducer';
 
 class _ProductInfo extends Component {
   componentDidMount() {
@@ -16,6 +17,8 @@ class _ProductInfo extends Component {
 
   onAddClick = () => {
     console.log('clicked');
+    const { productId, dispatchAddToCart } = this.props;
+    dispatchAddToCart({ productId });
   };
 
   render() {
@@ -62,7 +65,8 @@ const mapStateToProps = ({ products: { loading, productsById } }) => ({
 
 const mapDispatchToProps = dispatch => ({
   dispatchFetchProduct: fetchProduct(dispatch),
-  // dispatchAddToCart: addToCart(dispatch),
+  // Thunk pattern
+  dispatchAddToCart: ({ productId }) => dispatch(addToCart({ productId })),
 });
 
 const ProductInfo = compose(
@@ -70,13 +74,9 @@ const ProductInfo = compose(
     mapStateToProps,
     mapDispatchToProps
   ),
-  withProps(({ match: { params: { productId } } }) => {
-    console.log('props', productId);
-    return {
-      hey: 'ho',
-      productId,
-    };
-  })
+  withProps(({ match: { params: { productId } } }) => ({
+    productId,
+  }))
 )(_ProductInfo);
 
 export default ProductInfo;

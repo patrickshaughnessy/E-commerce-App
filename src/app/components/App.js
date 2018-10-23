@@ -7,20 +7,19 @@ import Home from './Home';
 import ProductInfo from './ProductInfo';
 import Login from './Login';
 
-import { fetchUser } from '../redux/user/reducer';
+import { fetchUser, logout } from '../redux/user/reducer';
 
 export class _App extends Component {
   componentDidMount() {
-    console.log('didmount');
     this.props.dispatchFetchUser();
   }
 
   render() {
-    const { user } = this.props;
+    const { user, dispatchLogout } = this.props;
     return (
       <Router>
         <div>
-          <NavBar isLoggedIn={user.isLoggedIn} />
+          <NavBar user={user} logout={dispatchLogout} />
           <Route exact path="/" component={Home} />
           <Route path="/products/:productId" component={ProductInfo} />
           <Route path="/login" component={Login} />
@@ -35,6 +34,7 @@ const mapStateToProps = ({ user }) => ({
 });
 const mapDispatchToProps = dispatch => ({
   dispatchFetchUser: fetchUser(dispatch),
+  dispatchLogout: () => dispatch(logout()),
 });
 
 const App = connect(

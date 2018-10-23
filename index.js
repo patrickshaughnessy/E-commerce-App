@@ -22,9 +22,9 @@ db.on('open', () => {
 const port = process.env.NODE_ENV || 3000;
 const app = express();
 
+// Middleware
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
-
 app.use(
   session({
     secret: 'ecommerceAppSessionSecret',
@@ -33,6 +33,15 @@ app.use(
     store: new MongoStore({ url: dbUrl }),
   })
 );
+app.use((req, res, next) => {
+  req.session.user = req.session.user || {
+    _id: req.sessionID,
+    cart: {
+      items: [],
+    },
+  };
+  next();
+});
 
 // API routes
 configureRoutes(app);

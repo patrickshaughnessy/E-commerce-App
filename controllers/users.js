@@ -1,5 +1,5 @@
+const _ = require('lodash');
 const bcrypt = require('bcrypt');
-const { v4 } = require('uuid');
 
 const { User } = require('../data');
 const { maskEmail } = require('../lib/utils');
@@ -30,13 +30,12 @@ const create = async (req, res, next) => {
     return next(error);
   }
 
-  let user;
   try {
     const userData = {
       email,
       password: await bcrypt.hash(password, 10),
     };
-    user = await User.create(userData);
+    await User.create(userData);
   } catch (e) {
     console.log('error creating user', e);
     error = new Error(
@@ -46,10 +45,7 @@ const create = async (req, res, next) => {
     return next(error);
   }
 
-  return res.json({
-    success: true,
-    userId: user._id,
-  });
+  return next();
 };
 
 const login = async (req, res, next) => {
@@ -73,68 +69,65 @@ const login = async (req, res, next) => {
   }
 
   if (!user || !isAuthenticated) {
-    console.log('isAuthenticated', isAuthenticated);
     error = new Error('Sorry, we could not log you in. Please try again');
     error.status = 401;
     return next(error);
   }
 
-  req.user = user;
-  req.user.isLoggedIn = true;
+  const { _id, firstName, lastName } = user;
 
-  req.session.userId = user._id;
-  // delete req.session.guest;
-
+  req.session.user = {
+    _id,
+    email: maskEmail(email),
+    firstName,
+    lastName,
+    isLoggedIn: true,
+    cart: req.session.user.cart,
+  };
+  console.log('login', req.session.user);
   return next();
 };
 
-const fetchSession = async (req, res, next) => {
-  // Fetch user info from loggedin session, then guest session or create new guest session
-  let user = {};
-  if (req.session.userId) {
-    try {
-      user = await User.findById(req.session.userId);
-      user.isLoggedIn = true;
-    } catch (e) {
-      console.log('error fetching user data');
-    }
-  } else if (req.session.guest) {
-    user = req.session.guest;
+const logout = async (req, res) => {
+  try {
+    await req.session.destroy();
+  } catch (e) {
+    console.log('error logging out');
+    const error = new Error('Something went wrong');
+    error.status = 500;
+    throw error;
+  }
+  console.log('destroyed');
+  return res.status(204).end();
+};
+
+const updateCart = async (req, res, next) => {
+  const { productId, remove } = req.body;
+
+  if (!productId) {
+    const error = new Error('Something went wrong');
+    error.status = 400;
+    return next(error);
+  }
+
+  const { cart } = req.session.user;
+
+  if (remove) {
+    cart.items = cart.items.filter(item => item.id === productId);
   } else {
-    req.session.guest = {
-      _id: v4(),
-    };
-    user = req.session.guest;
+    cart.items.push({ id: productId });
   }
-  req.user = user;
-
-  req.session.cart = req.session.cart || { items: [] };
-  req.cart = req.session.cart;
 
   return next();
 };
 
-const sendResponse = (req, res) => {
-  const { user, cart } = req;
-
-  let responseData = {};
-  if (user) {
-    responseData = {
-      id: user._id,
-      isLoggedIn: user.isLoggedIn,
-      email: maskEmail(user.email),
-      firstName: user.firstName,
-      lastName: user.lastName,
-      cart,
-    };
-  }
-
-  res.json(responseData);
-};
+const sendResponse = (req, res) =>
+  res.status(200).json(_.omit(req.session.user, '_id'));
 
 module.exports = {
+  updateCart,
   create,
-  fetchSession,
   login,
+  logout,
   sendResponse,
 };
