@@ -5,7 +5,7 @@ import { v4 } from 'uuid';
 
 import Loading from './Loading';
 import { fetchProduct } from '../redux/products/reducer';
-import { addToCart } from '../redux/user/reducer';
+import { updateCart } from '../redux/cart/reducer';
 
 class _ProductInfo extends Component {
   componentDidMount() {
@@ -66,7 +66,7 @@ const mapStateToProps = ({ products: { loading, productsById } }) => ({
 const mapDispatchToProps = dispatch => ({
   dispatchFetchProduct: fetchProduct(dispatch),
   // Thunk pattern
-  dispatchAddToCart: ({ productId }) => dispatch(addToCart({ productId })),
+  dispatchAddToCart: ({ productId }) => dispatch(updateCart({ productId })),
 });
 
 const ProductInfo = compose(

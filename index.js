@@ -40,6 +40,9 @@ app.use((req, res, next) => {
       items: [],
     },
   };
+  req.session.cart = req.session.cart || {
+    items: [],
+  };
   next();
 });
 
@@ -50,7 +53,7 @@ configureRoutes(app);
 app.use(express.static('dist'));
 
 app.get('*', (req, res) => {
-  console.log('rendering', req.method, req.url, req.session.userId);
+  console.log('rendering', req.method, req.url, req.session);
   // TODO - SSR refactor
   // return res.render('index');
   return res.sendFile(path.join(`${__dirname}/dist/index.html`));
