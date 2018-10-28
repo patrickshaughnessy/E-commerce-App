@@ -1,5 +1,5 @@
 {
-  "verbose": true,
+  "verbose": false,
   "watch": [
     "./controllers",
     "./data",
@@ -8,5 +8,5 @@
     "./src",
     "index.js"
   ],
-  "delay": "300"
+  "delay": "1000"
 }

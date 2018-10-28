@@ -1,4 +1,5 @@
 import React from 'react';
+import { withRouter } from 'react-router-dom';
 
 import Jumbotron from './Jumbotron';
 import ProductsContainer from './ProductsContainer';
@@ -10,4 +11,4 @@ const Home = () => (
   </div>
 );
 
-export default Home;
+export default withRouter(Home);

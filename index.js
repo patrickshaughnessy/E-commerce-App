@@ -1,11 +1,12 @@
 const path = require('path');
 const express = require('express');
 const mongoose = require('mongoose');
-const bodyParser = require('body-parser');
-const session = require('express-session');
-const MongoStore = require('connect-mongo')(session);
 
+const serveStatic = require('serve-static');
 const configureRoutes = require('./routes');
+const bodyParserMiddleware = require('./middleware/bodyParser');
+const sessionMiddleware = require('./middleware/session');
+const configureRender = require('./dist/server');
 
 const dbUrl = 'mongodb://localhost/ecommerceApp';
 const dbOptions = { useNewUrlParser: true };
@@ -19,44 +20,30 @@ db.on('open', () => {
   console.log('connected');
 });
 
-const port = process.env.NODE_ENV || 3000;
+const port = process.env.PORT || 3000;
 const app = express();
 
 // Middleware
-app.use(bodyParser.urlencoded({ extended: false }));
-app.use(bodyParser.json());
-app.use(
-  session({
-    secret: 'ecommerceAppSessionSecret',
-    resave: false,
-    saveUninitialized: true,
-    store: new MongoStore({ url: dbUrl }),
-  })
-);
-app.use((req, res, next) => {
-  req.session.user = req.session.user || {
-    _id: req.sessionID,
-    cart: {
-      items: [],
-    },
-  };
-  req.session.cart = req.session.cart || {
-    items: [],
-  };
-  next();
-});
+bodyParserMiddleware()(app);
+sessionMiddleware({ dbUrl })(app);
 
 // API routes
 configureRoutes(app);
 
 // React / client middleware
-app.use(express.static('dist'));
+app.use(serveStatic(path.join(__dirname, 'dist')));
 
-app.get('*', (req, res) => {
-  console.log('rendering', req.method, req.url, req.session);
-  // TODO - SSR refactor
-  // return res.render('index');
-  return res.sendFile(path.join(`${__dirname}/dist/index.html`));
-});
+configureRender(app);
 
-app.listen(port, () => console.log(`App listening on port ${port}`));
+// app.get('*', (req, res) => {
+//   console.log('rendering', req.method, req.url, req.session);
+//   // TODO - SSR refactor
+//   // return res.render('index');
+//   return res.sendFile(path.join(`${__dirname}/dist/index.html`));
+// });
+
+try {
+  app.listen(port, () => console.log(`App listening on port ${port}`));
+} catch (e) {
+  console.log('errrrrrr', e);
+}

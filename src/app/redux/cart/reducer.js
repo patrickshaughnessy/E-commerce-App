@@ -1,13 +1,21 @@
 const axios = require('axios');
 
-export const USER_INTIAL_STATE = {};
+export const CART_INITIAL_STATE = {
+  items: [],
+};
 
 export const UPDATE_CART = 'UPDATE_CART';
 export const UPDATE_CART_SUCCESS = 'UPDATE_CART_SUCCESS';
 export const UPDATE_CART_FAILURE = 'UPDATE_CART_FAILURE';
 
-export const reducer = (state = USER_INTIAL_STATE, action) => {
+export const reducer = (state = CART_INITIAL_STATE, action) => {
   switch (action.type) {
+    case UPDATE_CART_SUCCESS: {
+      return {
+        ...state,
+        ...action.payload.cart,
+      };
+    }
     default:
       return state;
   }
