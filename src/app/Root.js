@@ -8,6 +8,7 @@ import NavBar from './components/NavBar';
 import Home from './components/Home';
 import ProductInfo from './components/ProductInfo';
 import Login from './components/Login';
+import Cart from './components/Cart';
 
 import { fetchUser, logout } from './redux/user/reducer';
 
@@ -38,6 +39,7 @@ export class _App extends Component {
           <Route exact path="/" component={Home} />
           <Route path="/products/:productId" component={ProductInfo} />
           <Route path="/login" component={Login} />
+          <Route path="/cart" component={Cart} />
           <NotFound />
         </Switch>
       </Fragment>

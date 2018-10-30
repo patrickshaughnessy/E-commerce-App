@@ -26,6 +26,11 @@ const runApp = () => {
 
   const mountNode = document.getElementById('root');
   ReactDOM.hydrate(Application, mountNode);
+
+  module.hot.accept(() => {
+    console.log('hot loading');
+    // runApp();
+  });
 };
 
 if (document.readyState !== 'complete') {

@@ -5,11 +5,10 @@
   "main": "index.js",
   "scripts": {
     "start": "node .",
-    "start:dev": "NODE_ENV=development concurrently -r \"npm run start:dev:server-node\" \"npm run start:dev:client-js\" \"npm run start:dev:client-css\" \"npm run start:dev:server-js\"",
+    "start:dev": "NODE_ENV=development concurrently -r \"npm run start:dev:server-node\" \"npm run start:dev:client-js\" \"npm run start:dev:server-js\"",
     "start:dev:server-node": "nodemon",
-    "start:dev:client-js": "parcel watch src/js/client.js -d dist/ --public-url \"/\" --target browser --no-autoinstall",
-    "start:dev:client-css": "parcel watch src/css/styles.less src/css/favicon.ico -d dist/ --public-url \"/\" --target browser --no-autoinstall",
-    "start:dev:server-js": "parcel watch src/js/server.js -d dist/ --public-url \"/\" --target node --no-autoinstall",
+    "start:dev:client-js": "parcel watch src/js/client.js src/css/styles.less src/css/favicon.ico -d dist/ --public-url \"/\" --target browser --no-autoinstall --no-source-maps",
+    "start:dev:server-js": "parcel watch src/js/server.js -d dist/ --public-url \"/\" --target node --no-autoinstall --no-source-maps",
     "lint": "eslint .",
     "test": "jest",
     "clean": "rm -rf .cache && rm -rf dist",
@@ -61,6 +60,7 @@
     "nodemon": "^1.18.5",
     "parcel-bundler": "^1.10.3",
     "prettier": "^1.14.3",
-    "prettier-eslint": "^8.8.2"
+    "prettier-eslint": "^8.8.2",
+    "react-hot-loader": "^4.3.11"
   }
 }

@@ -5,7 +5,7 @@
     "./data",
     "./lib",
     "./routes",
-    "./src",
+    "./src/js/server",
     "index.js"
   ],
   "delay": "1000"

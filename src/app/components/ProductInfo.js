@@ -3,24 +3,31 @@ import { withRouter } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { compose, withProps } from 'recompose';
 import { v4 } from 'uuid';
-import { Helmet } from 'react-helmet';
 
 import Loading from './Loading';
 import { fetchProduct } from '../redux/products/reducer';
 import { updateCart } from '../redux/cart/reducer';
 
 class _ProductInfo extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      number: 1,
+    };
+  }
+
   componentDidMount() {
-    // const { dispatchFetchProduct, productsById, productId } = this.props;
-    // if (!productsById[productId]) {
-    //   dispatchFetchProduct(productId);
-    // }
+    const { dispatchFetchProduct, productsById, productId } = this.props;
+    if (!productsById[productId]) {
+      dispatchFetchProduct(productId);
+    }
   }
 
   onAddClick = () => {
-    // console.log('clicked');
-    // const { productId, dispatchAddToCart } = this.props;
-    // dispatchAddToCart({ productId });
+    console.log('clicked');
+    const { number } = this.state;
+    const { productId, dispatchAddToCart } = this.props;
+    dispatchAddToCart({ productId, number });
   };
 
   render() {
@@ -33,7 +40,6 @@ class _ProductInfo extends Component {
 
     return (
       <Fragment>
-        <Helmet />
         <div className="container">
           <div className="row">
             <div className="col-xs-12 col-sm-6">
@@ -43,6 +49,11 @@ class _ProductInfo extends Component {
               <h1>{product.name}</h1>
               <h6>{`$${product.price}`}</h6>
               <h5>{product.shortDescription}</h5>
+              <input
+                type="number"
+                value={this.state.number}
+                onChange={e => this.setState({ number: +e.target.value })}
+              />
               <button
                 type="button"
                 className="btn btn-primary"
@@ -71,7 +82,8 @@ const mapStateToProps = ({ products: { loading, productsById } }) => ({
 const mapDispatchToProps = dispatch => ({
   dispatchFetchProduct: fetchProduct(dispatch),
   // Thunk pattern
-  dispatchAddToCart: ({ productId }) => dispatch(updateCart({ productId })),
+  dispatchAddToCart: ({ productId, number }) =>
+    dispatch(updateCart({ productId, number })),
 });
 
 const ProductInfo = compose(
