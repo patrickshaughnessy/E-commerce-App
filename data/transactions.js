@@ -1,7 +1,7 @@
-const { Schema, model } = require('mongoose');
+const mongoose = require('mongoose');
 
-const transactionSchema = new Schema({
-  user: Schema.Types.ObjectId,
+const transactionSchema = new mongoose.Schema({
+  userId: mongoose.Schema.Types.ObjectId,
   address: {
     name: String,
     addressLines: [String],
@@ -10,18 +10,18 @@ const transactionSchema = new Schema({
     zip: String,
   },
   payment: {
-    amount: Schema.Types.Decimal128,
+    amount: Number,
     card: String,
   },
   items: [
     {
-      id: Schema.Types.ObjectId,
+      productId: mongoose.Schema.Types.ObjectId,
       number: Number,
     },
   ],
 });
 
-const Transaction = model('Transaction', transactionSchema);
+const Transaction = mongoose.model('Transaction', transactionSchema);
 
 module.exports = {
   Transaction,

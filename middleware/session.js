@@ -20,6 +20,7 @@ const sessionMiddleware = ({ dbUrl }) => app => {
     req.session.cart = req.session.cart || {
       items: [],
     };
+    console.log('session', req.session.cart);
     next();
   });
 };

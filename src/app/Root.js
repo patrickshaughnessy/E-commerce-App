@@ -9,6 +9,7 @@ import Home from './components/Home';
 import ProductInfo from './components/ProductInfo';
 import Login from './components/Login';
 import Cart from './components/Cart';
+import Checkout from './components/Checkout';
 
 import { fetchUser, logout } from './redux/user/reducer';
 
@@ -40,6 +41,7 @@ export class _App extends Component {
           <Route path="/products/:productId" component={ProductInfo} />
           <Route path="/login" component={Login} />
           <Route path="/cart" component={Cart} />
+          <Route path="/checkout" component={Checkout} />
           <NotFound />
         </Switch>
       </Fragment>

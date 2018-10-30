@@ -74,10 +74,11 @@ const login = async (req, res, next) => {
     return next(error);
   }
 
-  const { _id, firstName, lastName } = user;
+  const { _id, id, firstName, lastName } = user;
 
   req.session.user = {
     _id,
+    id,
     email: maskEmail(email),
     firstName,
     lastName,
@@ -86,6 +87,12 @@ const login = async (req, res, next) => {
   };
   console.log('login', req.session.user);
   return next();
+};
+
+const ensureLoggedIn = async (req, res, next) => {
+  if (req.session.user) return next();
+
+  return res.status(401).end();
 };
 
 const logout = async (req, res) => {
@@ -128,6 +135,7 @@ module.exports = {
   updateCart,
   create,
   login,
+  ensureLoggedIn,
   logout,
   sendResponse,
 };

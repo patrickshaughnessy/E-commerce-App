@@ -1,5 +1,3 @@
-const _ = require('lodash');
-
 const update = async (req, res, next) => {
   const { productId, number } = req.body;
 
@@ -9,16 +7,16 @@ const update = async (req, res, next) => {
     return next(error);
   }
 
-  const { cart } = req.session;
+  const sessionCart = req.session.cart;
 
-  const itemIndex = cart.items.findIndex(item => item.id === productId);
+  const itemIndex = sessionCart.items.findIndex(item => item.id === productId);
   if (itemIndex > -1) {
-    cart.items[itemIndex].number = number;
+    sessionCart.items[itemIndex].number = number;
   } else {
-    cart.items.push({ id: productId, number });
+    sessionCart.items.push({ id: productId, number });
   }
 
-  req.session.cart.items = cart.items.filter(item => item.number === 0);
+  req.session.cart.items = sessionCart.items.filter(item => item.number !== 0);
 
   return res.status(200).json({ cart: req.session.cart });
 };

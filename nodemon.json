@@ -4,6 +4,7 @@
     "./controllers",
     "./data",
     "./lib",
+    "./middleware",
     "./routes",
     "./src/js/server",
     "index.js"

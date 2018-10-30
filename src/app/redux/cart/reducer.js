@@ -8,6 +8,10 @@ export const UPDATE_CART = 'UPDATE_CART';
 export const UPDATE_CART_SUCCESS = 'UPDATE_CART_SUCCESS';
 export const UPDATE_CART_FAILURE = 'UPDATE_CART_FAILURE';
 
+export const CHECKOUT = 'CHECKOUT';
+export const CHECKOUT_SUCCESS = 'CHECKOUT_SUCCESS';
+export const CHECKOUT_FAILURE = 'CHECKOUT_FAILURE';
+
 export const reducer = (state = CART_INITIAL_STATE, action) => {
   switch (action.type) {
     case UPDATE_CART_SUCCESS: {
@@ -21,7 +25,34 @@ export const reducer = (state = CART_INITIAL_STATE, action) => {
   }
 };
 
-export const updateCart = ({ productId, remove = false }) => dispatch => {
+export const checkout = payload => dispatch => {
+  dispatch({
+    type: CHECKOUT,
+  });
+
+  return axios({
+    method: 'post',
+    url: `/api/checkout`,
+    data: payload,
+  })
+    .then(response => {
+      console.log('checkout response', response);
+      const { data } = response;
+
+      dispatch({
+        type: CHECKOUT_SUCCESS,
+        payload: data,
+      });
+    })
+    .catch(e => {
+      console.log('axios error', e);
+      dispatch({
+        type: CHECKOUT_FAILURE,
+      });
+    });
+};
+
+export const updateCart = ({ productId, number }) => dispatch => {
   dispatch({
     type: UPDATE_CART,
   });
@@ -31,7 +62,7 @@ export const updateCart = ({ productId, remove = false }) => dispatch => {
     url: `/api/cart`,
     data: {
       productId,
-      remove,
+      number,
     },
   })
     .then(response => {
