@@ -71,7 +71,7 @@ const generate = ({ category, name }) => {
   );
 
   const shortDescription = lorem({
-    count: Math.ceil(Math.random() * 5),
+    count: Math.ceil(Math.random() * 2),
     units: 'sentences',
   });
 

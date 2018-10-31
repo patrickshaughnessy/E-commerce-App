@@ -12,7 +12,8 @@
     "lint": "eslint .",
     "test": "jest",
     "clean": "rm -rf .cache && rm -rf dist",
-    "generate:all": "node ./data/utils/generate"
+    "generate": "node ./data/mockData/generate",
+    "populate": "node ./data/mockData/populate"
   },
   "author": "",
   "license": "ISC",

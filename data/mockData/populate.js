@@ -21,7 +21,7 @@ const populateProducts = async () => {
     const filePath = path.resolve(__dirname, 'products.json');
     const products = await fse.readJson(filePath);
     console.log('Prepared products:', products.length);
-    await Product.remove({});
+    await Product.deleteMany({});
     await Promise.all(products.map(product => Product.create(product)));
     console.log('Populated new products into DB');
   } catch (e) {

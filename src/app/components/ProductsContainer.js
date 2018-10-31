@@ -32,13 +32,13 @@ class _ProductsContainer extends Component {
 
     return (
       <div className="container">
-        {productRows.map(productRow => (
-          <div key={v4()} className="card-columns">
-            {productRow.map(product => (
+        <div key={v4()} className="card-columns">
+          {productRows.map(productRow =>
+            productRow.map(product => (
               <Product key={v4()} id={v4()} {...product} />
-            ))}
-          </div>
-        ))}
+            ))
+          )}
+        </div>
       </div>
     );
   }
