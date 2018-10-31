@@ -5,7 +5,7 @@ import { Provider } from 'react-redux';
 import { Helmet } from 'react-helmet';
 import cheerio from 'cheerio';
 
-import { configureStore } from '../app/redux';
+import { configureStore } from './shared';
 import Root from '../app/Root';
 
 const html = `<!DOCTYPE html>

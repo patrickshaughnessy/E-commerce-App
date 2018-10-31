@@ -48,7 +48,7 @@ class _Cart extends Component {
           </div>
           <button
             type="button"
-            className="btn btn-success"
+            className="btn btn-primary"
             onClick={this.onClick}
           >
             Checkout

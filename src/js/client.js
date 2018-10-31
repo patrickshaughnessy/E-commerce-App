@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom';
 import { BrowserRouter } from 'react-router-dom';
 import { Provider } from 'react-redux';
 
-import { configureStore } from '../app/redux';
+import { configureStore } from './shared';
 import Root from '../app/Root';
 
 require('jquery/dist/jquery.slim.min');
@@ -15,7 +15,7 @@ const runApp = () => {
   );
 
   const store = configureStore(data);
-  console.log('runapp');
+
   const Application = (
     <Provider store={store}>
       <BrowserRouter basename="/">
@@ -26,11 +26,6 @@ const runApp = () => {
 
   const mountNode = document.getElementById('root');
   ReactDOM.hydrate(Application, mountNode);
-
-  module.hot.accept(() => {
-    console.log('hot loading');
-    // runApp();
-  });
 };
 
 if (document.readyState !== 'complete') {

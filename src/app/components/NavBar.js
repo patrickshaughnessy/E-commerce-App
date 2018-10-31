@@ -12,9 +12,9 @@ class NavBar extends Component {
       logout,
     } = this.props;
     return (
-      <nav className="navbar navbar-expand-lg navbar-light bg-light">
+      <nav className="navbar navbar-expand-lg navbar-dark bg-primary">
         <Link to="/" className="navbar-brand">
-          A Nice Store
+          Best Store
         </Link>
         <button
           className="navbar-toggler"
@@ -30,22 +30,35 @@ class NavBar extends Component {
 
         <div className="collapse navbar-collapse" id="navbarSupportedContent">
           <div className="navbar-nav mr-auto">
-            <Link to="/" className="nav-item nav-link">
+            <Link to="/" activeClassName="active" className="nav-item nav-link">
               Home
             </Link>
-            <Link to="/sales" className="nav-item nav-link">
+            <Link
+              to="/sales"
+              activeClassName="active"
+              className="nav-item nav-link"
+            >
               Sales
             </Link>
-            <Link to="/about" className="nav-item nav-link">
+            <Link
+              to="/about"
+              activeClassName="active"
+              className="nav-item nav-link"
+            >
               About
             </Link>
           </div>
-          <div className="nav justify-content-end">
-            <Link to="/cart" className="nav-item nav-link">
+          <div className="navbar-nav justify-content-end">
+            <Link
+              to="/cart"
+              activeClassName="active"
+              className="nav-item nav-link"
+            >
               Cart
             </Link>
             <Link
               to={isLoggedIn ? '/account' : '/login'}
+              activeClassName="active"
               className="nav-item nav-link"
             >
               {isLoggedIn ? 'Account' : 'Login'}
