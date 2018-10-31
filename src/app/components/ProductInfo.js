@@ -12,7 +12,8 @@ class _ProductInfo extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      number: 1,
+      quantity: 1,
+      images: [],
     };
   }
 
@@ -23,6 +24,14 @@ class _ProductInfo extends Component {
     }
   }
 
+  componentWillReceiveProps(nextProps) {
+    const { images } = this.state;
+    const product = nextProps.productsById[nextProps.productId];
+    if (!images.length && product) {
+      this.setState({ images: product.images.slice() });
+    }
+  }
+
   onAddClick = () => {
     console.log('clicked');
     const { number } = this.state;
@@ -30,43 +39,96 @@ class _ProductInfo extends Component {
     dispatchAddToCart({ productId, number });
   };
 
+  onImageClick = index => {
+    const { images } = this.state;
+
+    const newImageList = images.slice();
+
+    const currentMainImage = newImageList[0];
+    const nextMainImage = newImageList[index];
+    newImageList[0] = nextMainImage;
+    newImageList[index] = currentMainImage;
+
+    this.setState({ images: newImageList });
+  };
+
   render() {
+    const { quantity, images } = this.state;
     const { loading, productsById, productId } = this.props;
     const product = productsById[productId];
-    // console.log('product', this.props);
+
     if (loading || !product) {
       return <Loading message="Fetching your product" />;
     }
 
+    const quantityOptions = Array(10)
+      .fill(1)
+      .map((opt, i) => (
+        <option value={i + 1} selected={quantity === i + 1}>
+          {i + 1}
+        </option>
+      ));
+
     return (
       <Fragment>
-        <div className="container">
-          <div className="row">
+        <div className="container productInfo">
+          <div className="row topRow">
             <div className="col-xs-12 col-sm-6">
-              <img src={product.images[0]} />
+              <img className="mainImage" src={images[0]} />
             </div>
             <div className="col-xs-12 col-sm-6">
               <h1>{product.name}</h1>
-              <h6>{`$${product.price}`}</h6>
-              <h5>{product.shortDescription}</h5>
-              <input
-                type="number"
-                value={this.state.number}
-                onChange={e => this.setState({ number: +e.target.value })}
-              />
-              <button
-                type="button"
-                className="btn btn-primary"
-                onClick={this.onAddClick}
-              >
-                Add To Cart
-              </button>
+              <hr />
+              <h6 className="price">{`Price $${product.price}`}</h6>
+              <h4 className="shortDescription">{product.shortDescription}</h4>
+              <div className="form-row flex-container">
+                <div className="col quantity">
+                  <label htmlFor="inputGroupSelect02">Quantity</label>
+                  <select
+                    onChange={e => this.setState({ quantity: +e.target.value })}
+                    className="form-control"
+                    id="inputGroupSelect02"
+                  >
+                    {quantityOptions}
+                  </select>
+                </div>
+                <div className="col addToCart">
+                  <button
+                    type="button"
+                    className="btn btn-primary"
+                    onClick={this.onAddClick}
+                  >
+                    Add To Cart
+                  </button>
+                </div>
+              </div>
             </div>
+          </div>
+          <hr />
+          <div className="row longDescription">
             <div className="col-xs-12">
+              <h3>Product Description</h3>
               {product.longDescription.map(desc => (
-                <p key={v4()}>{desc}</p>
+                <p className="text-justify" key={v4()}>
+                  {desc}
+                </p>
               ))}
             </div>
+          </div>
+          <hr />
+          <div className="otherImages">
+            {images.map(
+              (image, i) =>
+                i === 0 ? null : (
+                  <div
+                    key={`image_${image}_${i}`}
+                    onClick={() => this.onImageClick(i)}
+                    className="otherImage"
+                  >
+                    <img src={image} />
+                  </div>
+                )
+            )}
           </div>
         </div>
       </Fragment>

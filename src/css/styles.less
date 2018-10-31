@@ -33,3 +33,51 @@
     display: block;
   }
 }
+
+.productInfo {
+  margin: 5% auto;
+
+  .topRow {
+    margin: 5% auto;
+
+    .mainImage {
+      margin: 0 auto;
+      display: block;
+    }
+
+    .price {
+      padding-bottom: 2%;
+    }
+
+    .shortDescription {
+      padding-bottom: 2%;
+    }
+
+    .flex-container {
+      display: flex;
+      flex-direction: row;
+      justify-content: center;
+    }
+
+    .quantity {
+      flex: 1;
+    }
+
+    .addToCart {
+      flex: 4;
+      align-self: flex-end;
+      text-align: left;
+    }
+  }
+
+  .otherImages {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+
+    .otherImage {
+      flex: 1;
+      text-align: center;
+    }
+  }
+}
