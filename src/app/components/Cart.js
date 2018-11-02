@@ -5,6 +5,7 @@ import { compose, withProps } from 'recompose';
 import { v4 } from 'uuid';
 
 import Loading from './Loading';
+import QuantitySelect from './QuantitySelect';
 import { fetchProducts } from '../redux/products/reducer';
 import { updateCart } from '../redux/cart/reducer';
 
@@ -30,7 +31,13 @@ class _Cart extends Component {
   };
 
   render() {
-    const { items, productsById, productsList, loading } = this.props;
+    const {
+      items,
+      productsById,
+      productsList,
+      loading,
+      dispatchUpdateCart,
+    } = this.props;
 
     if (this.state.redirectToCheckout) {
       return <Redirect to="/checkout" />;
@@ -83,7 +90,17 @@ class _Cart extends Component {
                       <td className="font-weight-bold">
                         {`$${Number(product.price * item.quantity).toFixed(2)}`}
                       </td>
-                      <td className="font-weight-bold">{item.quantity}</td>
+                      <td className="font-weight-bold">
+                        <QuantitySelect
+                          quantity={item.quantity}
+                          onChange={e =>
+                            dispatchUpdateCart({
+                              productId: item.id,
+                              quantity: e.target.value,
+                            })
+                          }
+                        />
+                      </td>
                     </tr>
                   );
                 })}
@@ -125,6 +142,8 @@ const mapStateToProps = ({
 
 const mapDispatchToProps = dispatch => ({
   dispatchFetchProducts: fetchProducts(dispatch),
+  dispatchUpdateCart: ({ productId, quantity }) =>
+    dispatch(updateCart({ productId, quantity })),
 });
 
 const Cart = compose(
