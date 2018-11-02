@@ -16,7 +16,7 @@ const transactionSchema = new mongoose.Schema({
   items: [
     {
       productId: mongoose.Schema.Types.ObjectId,
-      number: Number,
+      quantity: Number,
     },
   ],
 });

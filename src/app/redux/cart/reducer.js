@@ -52,17 +52,17 @@ export const checkout = payload => dispatch => {
     });
 };
 
-export const updateCart = ({ productId, number }) => dispatch => {
+export const updateCart = ({ productId, quantity }) => dispatch => {
   dispatch({
     type: UPDATE_CART,
   });
-
+  console.log('updateCart', productId, quantity);
   return axios({
     method: 'put',
     url: `/api/cart`,
     data: {
       productId,
-      number,
+      quantity,
     },
   })
     .then(response => {

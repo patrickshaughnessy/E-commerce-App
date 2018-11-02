@@ -21,22 +21,25 @@ class _ProductInfo extends Component {
     const { dispatchFetchProduct, productsById, productId } = this.props;
     if (!productsById[productId]) {
       dispatchFetchProduct(productId);
+    } else {
+      this.setState({ images: productsById[productId].images.slice() });
     }
   }
 
   componentWillReceiveProps(nextProps) {
     const { images } = this.state;
     const product = nextProps.productsById[nextProps.productId];
+    console.log('nextProps', product);
     if (!images.length && product) {
       this.setState({ images: product.images.slice() });
     }
   }
 
   onAddClick = () => {
-    console.log('clicked');
-    const { number } = this.state;
+    const { quantity } = this.state;
     const { productId, dispatchAddToCart } = this.props;
-    dispatchAddToCart({ productId, number });
+    console.log('clicked', productId, quantity);
+    dispatchAddToCart({ productId, quantity });
   };
 
   onImageClick = index => {
@@ -144,8 +147,8 @@ const mapStateToProps = ({ products: { loading, productsById } }) => ({
 const mapDispatchToProps = dispatch => ({
   dispatchFetchProduct: fetchProduct(dispatch),
   // Thunk pattern
-  dispatchAddToCart: ({ productId, number }) =>
-    dispatch(updateCart({ productId, number })),
+  dispatchAddToCart: ({ productId, quantity }) =>
+    dispatch(updateCart({ productId, quantity })),
 });
 
 const ProductInfo = compose(
