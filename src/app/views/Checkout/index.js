@@ -185,6 +185,7 @@ export class _Checkout extends Component {
           <thead>
             <tr>
               <th scope="col">Item</th>
+              <th scope="col" />
               <th scope="col">Quantity</th>
               <th scope="col">Total</th>
             </tr>
@@ -198,9 +199,11 @@ export class _Checkout extends Component {
                     <img
                       alt={product.images[0].alt}
                       src={product.images[0].src}
-                      className="rounded float-left img-fluid"
+                      className="img-fluid shadow p-3 bg-white rounded"
                     />
-                    <p>{product.name}</p>
+                  </td>
+                  <td>
+                    <p className="text-left font-weight-bold">{product.name}</p>
                   </td>
                   <td>{`${item.quantity} x $${formatPrice(product.price)}`}</td>
                   <td>{`$${formatPrice(product.price * item.quantity)}`}</td>
@@ -215,9 +218,13 @@ export class _Checkout extends Component {
 
   renderTotals = () => {
     const {
-      products: { productsById },
+      products: { productsList, productsById, loading },
       cart,
     } = this.props;
+
+    if (!productsList.length || loading) {
+      return <Loading message="Hang on, we're loading your cart" />;
+    }
 
     const subtotal = cart.items.reduce(
       (sum, item) => sum + productsById[item.id].price * item.quantity,
