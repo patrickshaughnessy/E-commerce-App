@@ -14,9 +14,10 @@ import QuantitySelect from '../../components/QuantitySelect';
 class _Product extends Component {
   constructor(props) {
     super(props);
+    const { productId, cart } = props;
+    const itemInCart = cart.itemsById[productId];
     this.state = {
-      quantity: 1,
-      images: [],
+      quantity: itemInCart ? itemInCart.quantity : 1,
     };
   }
 
@@ -24,43 +25,18 @@ class _Product extends Component {
     const { dispatchFetchProduct, productsById, productId } = this.props;
     if (!productsById[productId]) {
       dispatchFetchProduct(productId);
-    } else {
-      this.setState({ images: productsById[productId].images.slice() });
-    }
-  }
-
-  componentWillReceiveProps(nextProps) {
-    const { images } = this.state;
-    const product = nextProps.productsById[nextProps.productId];
-    console.log('nextProps', product);
-    if (!images.length && product) {
-      this.setState({ images: product.images.slice() });
     }
   }
 
   onAddClick = () => {
     const { quantity } = this.state;
     const { productId, dispatchAddToCart } = this.props;
-    console.log('clicked', productId, quantity);
     dispatchAddToCart({ productId, quantity });
-  };
-
-  onImageClick = index => {
-    const { images } = this.state;
-
-    const newImageList = images.slice();
-
-    const currentMainImage = newImageList[0];
-    const nextMainImage = newImageList[index];
-    newImageList[0] = nextMainImage;
-    newImageList[index] = currentMainImage;
-
-    this.setState({ images: newImageList });
   };
 
   render() {
     const { quantity } = this.state;
-    const { loading, productsById, productId } = this.props;
+    const { loading, productsById, productId, cart } = this.props;
     const product = productsById[productId];
 
     if (loading || !product) {
@@ -81,8 +57,9 @@ class _Product extends Component {
             <h4 className="shortDescription">{product.shortDescription}</h4>
             <div className="form-row flex-container">
               <div className="col quantity">
-                <label htmlFor="inputGroupSelect02">Quantity</label>
+                <label htmlFor="quantitySelect">Quantity</label>
                 <QuantitySelect
+                  id="quantitySelect"
                   quantity={quantity}
                   onChange={e => this.setState({ quantity: +e.target.value })}
                 />
@@ -90,10 +67,12 @@ class _Product extends Component {
               <div className="col addToCart">
                 <button
                   type="button"
-                  className="btn btn-lg btn-primary"
+                  className={`btn btn-lg btn-${
+                    cart.itemsById[productId] ? 'success' : 'primary'
+                  } ${cart.loading ? 'disabled' : ''}`}
                   onClick={this.onAddClick}
                 >
-                  Add To Cart
+                  {cart.itemsById[productId] ? 'Update Cart' : 'Add To Cart'}
                 </button>
               </div>
             </div>
@@ -115,9 +94,10 @@ class _Product extends Component {
   }
 }
 
-const mapStateToProps = ({ products: { loading, productsById } }) => ({
+const mapStateToProps = ({ products: { loading, productsById }, cart }) => ({
   loading,
   productsById,
+  cart,
 });
 
 const mapDispatchToProps = dispatch => ({

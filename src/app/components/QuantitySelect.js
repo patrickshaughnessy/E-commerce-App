@@ -28,7 +28,7 @@ class _QuantitySelect extends Component {
           <input type="number" onChange={onChange} />
         ) : (
           <select
-            defaultValue={quantity}
+            value={quantity}
             onChange={onChange}
             className={`form-control ${className || ''}`}
             id={id}

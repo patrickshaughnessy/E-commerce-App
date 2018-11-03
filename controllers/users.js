@@ -82,7 +82,7 @@ const login = async (req, res, next) => {
     email: maskEmail(email),
     firstName,
     lastName,
-    isLoggedIn: true,
+    isAuthenticated: true,
     cart: req.session.user.cart,
   };
   console.log('login', req.session.user);

@@ -13,7 +13,7 @@ export const handleError = ({ dispatch, action }) => error => {
 export const INITIAL_STATE = {
   firstName: '',
   lastName: '',
-  isLoggedIn: false,
+  isAuthenticated: false,
   loading: false,
   error: false,
 };
@@ -48,7 +48,7 @@ export default (state = INITIAL_STATE, action) => {
         ...state,
         ...action.payload,
         loading: false,
-        isLoggedIn: true,
+        isAuthenticated: true,
       };
     case LOGOUT_SUCCESS:
       return INITIAL_STATE;

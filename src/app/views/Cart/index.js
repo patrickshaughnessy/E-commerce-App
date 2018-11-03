@@ -8,6 +8,7 @@ import Loading from '../../components/Loading';
 import QuantitySelect from '../../components/QuantitySelect';
 import { fetchProducts } from '../../redux/products';
 import { updateCart } from '../../redux/cart';
+import { formatPrice } from '../../../../lib/utils';
 
 class _Cart extends Component {
   constructor(props) {
@@ -30,32 +31,86 @@ class _Cart extends Component {
     this.setState({ redirectToCheckout: true });
   };
 
+  renderItems = () => {
+    const { productsById, items, dispatchUpdateCart } = this.props;
+
+    if (!items.length) {
+      return (
+        <tr>
+          <td>Nothing in your cart!</td>
+        </tr>
+      );
+    }
+
+    return items.map(item => {
+      const product = productsById[item.id];
+      if (!product) return null;
+      return (
+        <tr key={v4()}>
+          <td className="productContainer">
+            <div className="productImage">
+              <img
+                alt={product.images[0].alt}
+                src={product.images[0].src}
+                className="rounded float-left img-fluid"
+              />
+            </div>
+            <div className="productDescription">
+              <p className="name">{product.name}</p>
+              <p className="shortDescription">{product.shortDescription}</p>
+              <button
+                type="button"
+                className="btn btn-link text-left text-secondary"
+                onClick={() =>
+                  dispatchUpdateCart({
+                    productId: item.id,
+                    quantity: 0,
+                  })
+                }
+              >
+                <small>Remove</small>
+              </button>
+            </div>
+          </td>
+          <td className="font-weight-bold">
+            {`$${formatPrice(product.price * item.quantity)}`}
+          </td>
+          <td className="font-weight-bold">
+            <QuantitySelect
+              quantity={item.quantity}
+              onChange={e =>
+                dispatchUpdateCart({
+                  productId: item.id,
+                  quantity: e.target.value,
+                })
+              }
+            />
+          </td>
+        </tr>
+      );
+    });
+  };
+
   render() {
-    const {
-      items,
-      productsById,
-      productsList,
-      loading,
-      dispatchUpdateCart,
-    } = this.props;
+    const { items, productsById, productsList, loading } = this.props;
 
     if (this.state.redirectToCheckout) {
       return <Redirect to="/checkout" />;
     }
 
     if (!productsList.length || loading) {
-      return <Loading message="Hang on, we're loading products" />;
+      return <Loading message="Hang on, we're loading your cart" />;
     }
 
-    const total = Number(
+    const total = formatPrice(
       items.reduce(
         (sum, item) => sum + productsById[item.id].price * item.quantity,
         0
       )
-    ).toFixed(2);
+    );
 
     return (
-      <div className="container cart">
+      <div id="cartPage" className="container">
         <div className="row">
           <div className="col-xs-12 cartTableContainer">
             <table className="table cartTable">
@@ -66,45 +121,7 @@ class _Cart extends Component {
                   <th scope="col">Quantity</th>
                 </tr>
               </thead>
-              <tbody>
-                {items.map(item => {
-                  const product = productsById[item.id];
-                  if (!product) return null;
-                  return (
-                    <tr key={v4()}>
-                      <td className="productContainer">
-                        <div className="productImage">
-                          <img
-                            alt="product"
-                            src={product.images[0]}
-                            className="rounded float-left img-fluid"
-                          />
-                        </div>
-                        <div className="productDescription">
-                          <p className="name">{product.name}</p>
-                          <p className="shortDescription">
-                            {product.shortDescription}
-                          </p>
-                        </div>
-                      </td>
-                      <td className="font-weight-bold">
-                        {`$${Number(product.price * item.quantity).toFixed(2)}`}
-                      </td>
-                      <td className="font-weight-bold">
-                        <QuantitySelect
-                          quantity={item.quantity}
-                          onChange={e =>
-                            dispatchUpdateCart({
-                              productId: item.id,
-                              quantity: e.target.value,
-                            })
-                          }
-                        />
-                      </td>
-                    </tr>
-                  );
-                })}
-              </tbody>
+              <tbody>{this.renderItems()}</tbody>
             </table>
           </div>
         </div>

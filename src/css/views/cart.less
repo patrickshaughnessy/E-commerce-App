@@ -1,0 +1,47 @@
+#cartPage {
+  .cartTableContainer {
+    width: 100%;
+
+    thead {
+      tr > th:first-child {
+        font-size: 150%;
+      }
+    }
+  }
+
+  .cartTable {
+    .productContainer {
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+    }
+
+    .productImage {
+      flex: 1;
+    }
+
+    .productDescription {
+      flex: 3;
+
+      p.name {
+        font-weight: bold;
+        padding: 0 5%;
+        font-size: 150%;
+      }
+      p.shortDescription {
+        padding: 0 5%;
+      }
+      button {
+        padding: 0 5%;
+      }
+    }
+  }
+
+  .checkoutButton {
+    margin-top: 2%;
+
+    .btn {
+      font-size: 200%;
+    }
+  }
+}

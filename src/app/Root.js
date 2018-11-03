@@ -3,6 +3,7 @@ import { Route, Switch } from 'react-router-dom';
 
 import Head from './components/Head';
 import NavBar from './components/NavBar';
+import PrivateRoute from './components/PrivateRoute';
 import About from './views/About';
 import Home from './views/Home';
 import Product from './views/Product';
@@ -22,7 +23,7 @@ const App = () => (
       <Route path="/products/:productId" component={Product} />
       <Route path="/login" component={Login} />
       <Route path="/cart" component={Cart} />
-      <Route path="/checkout" component={Checkout} />
+      <PrivateRoute path="/checkout" component={Checkout} />
       <Route path="/signup" component={Signup} />
       <Route path="*" component={NotFound} />
     </Switch>

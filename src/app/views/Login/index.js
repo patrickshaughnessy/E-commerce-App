@@ -16,17 +16,15 @@ export class _Login extends Component {
   }
 
   componentWillReceiveProps(nextProps) {
-    if (nextProps.user.isLoggedIn) {
+    if (nextProps.user.isAuthenticated) {
       this.setState({ redirectToReferrer: true });
     }
   }
 
   onSubmit = event => {
     event.preventDefault();
-
     const { dispatchLogin } = this.props;
     const { email, password } = this.state;
-    console.log('yo', email, password);
     if (email && password) {
       dispatchLogin({ email, password });
     }
@@ -35,7 +33,7 @@ export class _Login extends Component {
   render() {
     const { from } = this.props.location.state || { from: { pathname: '/' } };
     const { redirectToReferrer } = this.state;
-
+    console.log('from', from);
     if (redirectToReferrer) {
       return <Redirect to={from} />;
     }

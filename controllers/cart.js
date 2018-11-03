@@ -1,7 +1,7 @@
 const update = async (req, res, next) => {
   const { productId, quantity } = req.body;
 
-  if (!productId || !quantity) {
+  if (!productId || !(quantity >= 0)) {
     console.log('error in cart', productId, quantity);
     const error = new Error('Something went wrong');
     error.status = 400;

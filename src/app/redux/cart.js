@@ -1,7 +1,11 @@
 import { get } from 'lodash';
 import axios from 'axios';
 
+export const byId = items =>
+  (items || []).reduce((acc, item) => ({ ...acc, [item.id]: item }), {});
+
 export const handleError = ({ dispatch, action }) => error => {
+  console.log('error', error);
   dispatch({
     type: action,
     payload: {
@@ -12,6 +16,7 @@ export const handleError = ({ dispatch, action }) => error => {
 
 export const INITIAL_STATE = {
   items: [],
+  itemsById: {},
   error: false,
   loading: false,
 };
@@ -39,18 +44,23 @@ export default (state = INITIAL_STATE, action) => {
     case UPDATE_CART_SUCCESS:
       return {
         ...state,
-        ...action.payload.cart,
+        items: action.payload.items,
+        itemsById: byId(action.payload.items),
         loading: false,
         error: false,
       };
     case CHECKOUT_FAILURE:
     case UPDATE_CART_FAILURE:
       return {
+        ...state,
         loading: false,
         error: action.payload.error,
       };
     default:
-      return state;
+      return {
+        ...state,
+        itemsById: byId(state.items),
+      };
   }
 };
 
@@ -89,7 +99,7 @@ export const updateCart = ({ productId, quantity }) => dispatch => {
     .then(({ data }) => {
       dispatch({
         type: UPDATE_CART_SUCCESS,
-        payload: data,
+        payload: data.cart,
       });
     })
     .catch(handleError({ dispatch, action: UPDATE_CART_FAILURE }));

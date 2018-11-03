@@ -8,7 +8,7 @@ class NavBar extends Component {
 
   render() {
     console.log('navbar render');
-    const isLoggedIn = false;
+    const isAuthenticated = false;
     const logout = () => {};
     return (
       <nav className="navbar navbar-expand-lg navbar-dark bg-primary">
@@ -49,13 +49,13 @@ class NavBar extends Component {
               Cart
             </Link>
             <Link
-              to={isLoggedIn ? '/account' : '/login'}
+              to={isAuthenticated ? '/account' : '/login'}
               activeclassname="active"
               className="nav-item nav-link"
             >
-              {isLoggedIn ? 'Account' : 'Login'}
+              {isAuthenticated ? 'Account' : 'Login'}
             </Link>
-            {isLoggedIn ? (
+            {isAuthenticated ? (
               <button
                 type="button"
                 href="#"
