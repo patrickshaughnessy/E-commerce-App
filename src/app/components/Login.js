@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Redirect, withRouter } from 'react-router-dom';
+import { Redirect, Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { compose } from 'recompose';
 
@@ -86,9 +86,9 @@ export class _Login extends Component {
                   <small id="loginHelp" className="form-text text-muted">
                     Not registered?
                   </small>
-                  <a href="/signup" className="card-link">
+                  <Link to="/signup" className="card-link">
                     Create an account
-                  </a>
+                  </Link>
                 </div>
               </div>
             </div>

@@ -14,6 +14,10 @@ export const LOGIN = 'LOGIN';
 export const LOGIN_SUCCESS = 'LOGIN_SUCCESS';
 export const LOGIN_FAILURE = 'LOGIN_FAILURE';
 
+export const CREATE_USER = 'CREATE_USER';
+export const CREATE_USER_SUCCESS = 'CREATE_USER_SUCCESS';
+export const CREATE_USER_FAILURE = 'CREATE_USER_FAILURE';
+
 export const LOGOUT = 'LOGOUT';
 export const LOGOUT_SUCCESS = 'LOGOUT_SUCCESS';
 export const LOGOUT_FAILURE = 'LOGOUT_FAILURE';
@@ -60,6 +64,40 @@ export const login = ({ email, password }) => dispatch => {
       console.log('axios error', e);
       dispatch({
         type: LOGIN_FAILURE,
+      });
+    });
+};
+
+export const createUser = ({
+  email,
+  password,
+  confirmPassword,
+}) => dispatch => {
+  dispatch({
+    type: CREATE_USER,
+  });
+
+  return axios({
+    method: 'post',
+    url: '/api/users/create',
+    data: {
+      email,
+      password,
+      confirmPassword,
+    },
+  })
+    .then(response => {
+      const { data } = response;
+      console.log('create user success', data);
+      dispatch({
+        type: CREATE_USER_SUCCESS,
+        payload: data,
+      });
+    })
+    .catch(e => {
+      console.log('axios error', e);
+      dispatch({
+        type: CREATE_USER_FAILURE,
       });
     });
 };
