@@ -1,38 +1,9 @@
 // @import (inline) '../../node_modules/bootstrap/dist/css/bootstrap.min.css';
 @import (inline) './theme.min.css';
-@import (inline) '../../node_modules/loading-css/loading.min.css';
 
-.loadingContainer {
-  width: 100%;
-  height: 100%;
-  text-align: center;
+@import './components/loading.less';
 
-  .loading {
-    position: relative;
-    margin: 25% auto 0 auto;
-    width: 100px;
-    height: 100px;
-  }
-  .ldgRing {
-    border-right-color: #843095;
-  }
-  p {
-    margin-top: 2%;
-  }
-}
-
-.jumbotron {
-  background-image: url('https://images.unsplash.com/photo-1540849615499-5000b6b4bafc');
-  background-size: cover;
-  height: 50vh;
-}
-
-.product {
-  img {
-    margin: 2% auto;
-    display: block;
-  }
-}
+@import './views/home.less';
 
 .productInfo {
   margin: 5% auto;

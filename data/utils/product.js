@@ -1,6 +1,8 @@
 const lorem = require('lorem-ipsum');
 const _ = require('lodash');
 
+const { formatPrice } = require('../../lib/utils');
+
 const products = {
   electronics: [
     'HDMI Cable',
@@ -66,7 +68,7 @@ const getRandomColor = () => {
 };
 
 const generate = ({ category, name }) => {
-  const price = Number(
+  const price = formatPrice(
     `${Math.ceil(Math.random() * 100)}.${Math.ceil(Math.random() * 100)}`
   );
 
@@ -89,9 +91,12 @@ const generate = ({ category, name }) => {
     .map(() => {
       const backgroundColor = getRandomColor();
       const textColor = invertColor(backgroundColor, true);
-      return `https://via.placeholder.com/200/${backgroundColor}/${textColor}/?text=${name
-        .split(' ')
-        .join('+')}`;
+      return {
+        src: `https://via.placeholder.com/200/${backgroundColor}/${textColor}/?text=${name
+          .split(' ')
+          .join('+')}`,
+        alt: name,
+      };
     });
 
   const product = {

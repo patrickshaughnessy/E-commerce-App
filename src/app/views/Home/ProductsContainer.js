@@ -8,9 +8,8 @@ import { fetchProducts } from '../../redux/products';
 
 class _ProductsContainer extends Component {
   componentDidMount() {
-    const { dispatchFetchProducts, productsList, loading } = this.props;
-    // TODO - add error check as well
-    if (!productsList.length && !loading) {
+    const { dispatchFetchProducts, productsList } = this.props;
+    if (!productsList.length) {
       dispatchFetchProducts();
     }
   }
@@ -21,23 +20,12 @@ class _ProductsContainer extends Component {
       return <Loading message="Hang on, we're loading products" />;
     }
 
-    const productRows = productsList.reduce((acc, product, i) => {
-      if (i % 3 === 0) {
-        acc.push([product]);
-      } else {
-        acc[acc.length - 1].push(product);
-      }
-      return acc;
-    }, []);
-
     return (
       <div className="container">
-        <div key={v4()} className="card-columns">
-          {productRows.map(productRow =>
-            productRow.map(product => (
-              <Product key={v4()} id={v4()} {...product} />
-            ))
-          )}
+        <div className="card-columns">
+          {productsList.map(product => (
+            <Product key={v4()} {...product} />
+          ))}
         </div>
       </div>
     );
