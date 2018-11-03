@@ -1,14 +1,14 @@
-import React from 'react';
+import React, { Fragment } from 'react';
 import { withRouter } from 'react-router-dom';
 
 import Jumbotron from './Jumbotron';
 import ProductsContainer from './ProductsContainer';
 
 const Home = () => (
-  <div>
+  <Fragment id="homePage">
     <Jumbotron />
     <ProductsContainer />
-  </div>
+  </Fragment>
 );
 
 export default withRouter(Home);

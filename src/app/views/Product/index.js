@@ -4,9 +4,9 @@ import { connect } from 'react-redux';
 import { compose, withProps } from 'recompose';
 import { v4 } from 'uuid';
 
-import Loading from './Loading';
-import { fetchProduct } from '../redux/products/reducer';
-import { updateCart } from '../redux/cart/reducer';
+import Loading from '../../components/Loading';
+import { fetchProduct } from '../../redux/products';
+import { updateCart } from '../../redux/cart';
 
 class _ProductInfo extends Component {
   constructor(props) {

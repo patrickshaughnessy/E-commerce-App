@@ -3,7 +3,7 @@ import { Redirect, Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { compose } from 'recompose';
 
-import { login } from '../redux/user/reducer';
+import { login } from '../../redux/user';
 
 export class _Login extends Component {
   constructor(props) {

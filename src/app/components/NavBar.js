@@ -7,10 +7,9 @@ class NavBar extends Component {
   }
 
   render() {
-    const {
-      user: { isLoggedIn },
-      logout,
-    } = this.props;
+    console.log('navbar render');
+    const isLoggedIn = false;
+    const logout = () => {};
     return (
       <nav className="navbar navbar-expand-lg navbar-dark bg-primary">
         <Link to="/" className="navbar-brand">

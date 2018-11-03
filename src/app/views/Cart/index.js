@@ -1,13 +1,13 @@
-import React, { Component, Fragment } from 'react';
+import React, { Component } from 'react';
 import { Redirect } from 'react-router-dom';
 import { connect } from 'react-redux';
-import { compose, withProps } from 'recompose';
+import { compose } from 'recompose';
 import { v4 } from 'uuid';
 
-import Loading from './Loading';
-import QuantitySelect from './QuantitySelect';
-import { fetchProducts } from '../redux/products/reducer';
-import { updateCart } from '../redux/cart/reducer';
+import Loading from '../../components/Loading';
+import QuantitySelect from '../../components/QuantitySelect';
+import { fetchProducts } from '../../redux/products';
+import { updateCart } from '../../redux/cart';
 
 class _Cart extends Component {
   constructor(props) {

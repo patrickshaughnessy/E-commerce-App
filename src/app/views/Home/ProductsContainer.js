@@ -3,8 +3,8 @@ import { connect } from 'react-redux';
 import { v4 } from 'uuid';
 
 import Product from './Product';
-import Loading from './Loading';
-import { fetchProducts } from '../redux/products/reducer';
+import Loading from '../../components/Loading';
+import { fetchProducts } from '../../redux/products';
 
 class _ProductsContainer extends Component {
   componentDidMount() {

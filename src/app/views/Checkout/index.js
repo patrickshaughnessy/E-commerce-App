@@ -2,7 +2,7 @@ import React, { Component, Fragment } from 'react';
 import { connect } from 'react-redux';
 import { compose } from 'recompose';
 
-import { checkout } from '../redux/cart/reducer';
+import { checkout } from '../../redux/cart';
 
 export class _Checkout extends Component {
   constructor(props) {

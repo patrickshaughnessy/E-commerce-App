@@ -2,7 +2,7 @@ import React, { Component, Fragment } from 'react';
 import { connect } from 'react-redux';
 import { compose } from 'recompose';
 
-import { createUser } from '../redux/user/reducer';
+import { createUser } from '../../redux/user';
 
 export class _Signup extends Component {
   constructor(props) {
