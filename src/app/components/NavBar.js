@@ -33,13 +33,6 @@ class NavBar extends Component {
               Home
             </Link>
             <Link
-              to="/sales"
-              activeclassname="active"
-              className="nav-item nav-link"
-            >
-              Sales
-            </Link>
-            <Link
               to="/about"
               activeclassname="active"
               className="nav-item nav-link"

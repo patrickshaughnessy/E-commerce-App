@@ -3,6 +3,7 @@ import { Route, Switch } from 'react-router-dom';
 
 import Head from './components/Head';
 import NavBar from './components/NavBar';
+import About from './views/About';
 import Home from './views/Home';
 import Product from './views/Product';
 import Login from './views/Login';
@@ -17,6 +18,7 @@ const App = () => (
     <NavBar />
     <Switch>
       <Route exact path="/" component={Home} />
+      <Route path="/about" component={About} />
       <Route path="/products/:productId" component={Product} />
       <Route path="/login" component={Login} />
       <Route path="/cart" component={Cart} />
