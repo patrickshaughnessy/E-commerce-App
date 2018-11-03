@@ -1,0 +1,75 @@
+#productPage {
+  margin: 5% auto;
+
+  #imageSection {
+    div {
+      display: flex;
+    }
+    .row {
+      flex-direction: column;
+      align-items: stretch;
+      justify-content: space-between;
+    }
+
+    .col {
+      margin: 0;
+      padding: 0;
+      justify-content: center;
+    }
+
+    .sideImages {
+      flex: 1;
+      flex-direction: row;
+
+      .sideImage {
+        max-width: 70px;
+        margin: 2%;
+
+        button {
+          padding: 0;
+        }
+      }
+    }
+
+    .mainImage {
+      flex: 7;
+
+      img {
+        align-self: center;
+        width: 75%;
+      }
+    }
+  }
+
+  .topRow {
+    margin: 5% auto;
+
+    .price {
+      padding-bottom: 2%;
+    }
+
+    .shortDescription {
+      padding-bottom: 2%;
+    }
+
+    .flex-container {
+      display: flex;
+      flex-direction: row;
+      justify-content: center;
+    }
+
+    .quantity {
+      flex: 1;
+    }
+
+    .addToCart {
+      flex: 4;
+      align-self: flex-end;
+      text-align: left;
+    }
+  }
+
+  .longDescription {
+    margin: 5% auto;
+  }
+}

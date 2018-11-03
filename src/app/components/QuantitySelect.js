@@ -30,7 +30,7 @@ class _QuantitySelect extends Component {
           <select
             defaultValue={quantity}
             onChange={onChange}
-            className={className}
+            className={`form-control ${className || ''}`}
             id={id}
           >
             {quantityOptions}

@@ -1,14 +1,17 @@
-import React, { Component, Fragment } from 'react';
+import React, { Component } from 'react';
 import { withRouter } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { compose, withProps } from 'recompose';
 import { v4 } from 'uuid';
 
-import Loading from '../../components/Loading';
+import { formatPrice } from '../../../../lib/utils';
 import { fetchProduct } from '../../redux/products';
 import { updateCart } from '../../redux/cart';
+import Loading from '../../components/Loading';
+import ImageSection from './ImageSection';
+import QuantitySelect from '../../components/QuantitySelect';
 
-class _ProductInfo extends Component {
+class _Product extends Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -56,7 +59,7 @@ class _ProductInfo extends Component {
   };
 
   render() {
-    const { quantity, images } = this.state;
+    const { quantity } = this.state;
     const { loading, productsById, productId } = this.props;
     const product = productsById[productId];
 
@@ -64,77 +67,50 @@ class _ProductInfo extends Component {
       return <Loading message="Fetching your product" />;
     }
 
-    const quantityOptions = Array(10)
-      .fill(1)
-      .map((opt, i) => (
-        <option value={i + 1} selected={quantity === i + 1}>
-          {i + 1}
-        </option>
-      ));
-
     return (
-      <Fragment>
-        <div className="container productInfo">
-          <div className="row topRow">
-            <div className="col-xs-12 col-sm-6">
-              <img className="mainImage" src={images[0]} />
-            </div>
-            <div className="col-xs-12 col-sm-6">
-              <h1>{product.name}</h1>
-              <hr />
-              <h6 className="price">{`Price $${product.price}`}</h6>
-              <h4 className="shortDescription">{product.shortDescription}</h4>
-              <div className="form-row flex-container">
-                <div className="col quantity">
-                  <label htmlFor="inputGroupSelect02">Quantity</label>
-                  <select
-                    onChange={e => this.setState({ quantity: +e.target.value })}
-                    className="form-control"
-                    id="inputGroupSelect02"
-                  >
-                    {quantityOptions}
-                  </select>
-                </div>
-                <div className="col addToCart">
-                  <button
-                    type="button"
-                    className="btn btn-primary"
-                    onClick={this.onAddClick}
-                  >
-                    Add To Cart
-                  </button>
-                </div>
+      <div id="productPage" className="container">
+        <div className="row topRow">
+          <div className="col-xs-12 col-sm-6">
+            <ImageSection images={product.images} />
+            <hr className="d-block d-sm-none" />
+          </div>
+          <div className="col-xs-12 col-sm-6">
+            <h1>{product.name}</h1>
+            <h6 className="price">{`Price: $${formatPrice(product.price)}`}</h6>
+            <hr />
+            <h4 className="shortDescription">{product.shortDescription}</h4>
+            <div className="form-row flex-container">
+              <div className="col quantity">
+                <label htmlFor="inputGroupSelect02">Quantity</label>
+                <QuantitySelect
+                  quantity={quantity}
+                  onChange={e => this.setState({ quantity: +e.target.value })}
+                />
+              </div>
+              <div className="col addToCart">
+                <button
+                  type="button"
+                  className="btn btn-lg btn-primary"
+                  onClick={this.onAddClick}
+                >
+                  Add To Cart
+                </button>
               </div>
             </div>
           </div>
-          <hr />
-          <div className="row longDescription">
-            <div className="col-xs-12">
-              <h3>Product Description</h3>
-              {product.longDescription.map(desc => (
-                <p className="text-justify" key={v4()}>
-                  {desc}
-                </p>
-              ))}
-            </div>
-          </div>
-          <hr />
-          <div className="otherImages">
-            {images.map(
-              (image, i) =>
-                i === 0 ? null : (
-                  <div
-                    key={`image_${image}_${i}`}
-                    onClick={() => this.onImageClick(i)}
-                    className="otherImage"
-                  >
-                    <img src={image} />
-                  </div>
-                )
-            )}
+        </div>
+        <hr />
+        <div className="row longDescription">
+          <div className="col-xs-12">
+            <h3>Product Description</h3>
+            {product.longDescription.map(desc => (
+              <p key={v4()} className="text-justify">
+                {desc}
+              </p>
+            ))}
           </div>
         </div>
-      </Fragment>
+      </div>
     );
   }
 }
@@ -151,7 +127,7 @@ const mapDispatchToProps = dispatch => ({
     dispatch(updateCart({ productId, quantity })),
 });
 
-const ProductInfo = compose(
+const Product = compose(
   withRouter,
   connect(
     mapStateToProps,
@@ -160,6 +136,6 @@ const ProductInfo = compose(
   withProps(({ match: { params: { productId } } }) => ({
     productId,
   }))
-)(_ProductInfo);
+)(_Product);
 
-export default ProductInfo;
+export default Product;
