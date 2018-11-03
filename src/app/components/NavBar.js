@@ -30,19 +30,19 @@ class NavBar extends Component {
 
         <div className="collapse navbar-collapse" id="navbarSupportedContent">
           <div className="navbar-nav mr-auto">
-            <Link to="/" activeClassName="active" className="nav-item nav-link">
+            <Link to="/" activeclassname="active" className="nav-item nav-link">
               Home
             </Link>
             <Link
               to="/sales"
-              activeClassName="active"
+              activeclassname="active"
               className="nav-item nav-link"
             >
               Sales
             </Link>
             <Link
               to="/about"
-              activeClassName="active"
+              activeclassname="active"
               className="nav-item nav-link"
             >
               About
@@ -51,14 +51,14 @@ class NavBar extends Component {
           <div className="navbar-nav justify-content-end">
             <Link
               to="/cart"
-              activeClassName="active"
+              activeclassname="active"
               className="nav-item nav-link"
             >
               Cart
             </Link>
             <Link
               to={isLoggedIn ? '/account' : '/login'}
-              activeClassName="active"
+              activeclassname="active"
               className="nav-item nav-link"
             >
               {isLoggedIn ? 'Account' : 'Login'}

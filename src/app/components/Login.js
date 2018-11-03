@@ -42,45 +42,57 @@ export class _Login extends Component {
     return (
       <div className="container">
         <div className="row align-items-center">
-          <div className="w-25" />
-          <div className="col">
-            <form>
-              <div className="form-group">
-                <label htmlFor="exampleInputEmail1">Email address</label>
-                <input
-                  type="email"
-                  className="form-control"
-                  id="exampleInputEmail1"
-                  aria-describedby="emailHelp"
-                  placeholder="Enter email"
-                  name="email"
-                  onChange={e => this.setState({ email: e.target.value })}
-                />
-                <small id="emailHelp" className="form-text text-muted">
-                  We'll never share your email with anyone else.
-                </small>
+          <div className="col-md-6 loginForm">
+            <div className="card">
+              <div className="card-body">
+                <h3 className="card-title text-center">
+                  Login To Your Account
+                </h3>
+                <form>
+                  <div className="form-group">
+                    <label htmlFor="exampleInputEmail1">Email address</label>
+                    <input
+                      type="email"
+                      className="form-control"
+                      id="exampleInputEmail1"
+                      aria-describedby="emailHelp"
+                      placeholder="Enter email"
+                      name="email"
+                      onChange={e => this.setState({ email: e.target.value })}
+                    />
+                  </div>
+                  <div className="form-group">
+                    <label htmlFor="exampleInputPassword1">Password</label>
+                    <input
+                      type="password"
+                      className="form-control"
+                      id="exampleInputPassword1"
+                      placeholder="Password"
+                      name="password"
+                      onChange={e =>
+                        this.setState({ password: e.target.value })
+                      }
+                    />
+                  </div>
+                  <button
+                    type="submit"
+                    className="btn btn-lg btn-primary btn-block"
+                    onClick={this.onSubmit}
+                  >
+                    Submit
+                  </button>
+                </form>
+                <div className="card-body text-center">
+                  <small id="loginHelp" className="form-text text-muted">
+                    Not registered?
+                  </small>
+                  <a href="/signup" className="card-link">
+                    Create an account
+                  </a>
+                </div>
               </div>
-              <div className="form-group">
-                <label htmlFor="exampleInputPassword1">Password</label>
-                <input
-                  type="password"
-                  className="form-control"
-                  id="exampleInputPassword1"
-                  placeholder="Password"
-                  name="password"
-                  onChange={e => this.setState({ password: e.target.value })}
-                />
-              </div>
-              <button
-                type="submit"
-                className="btn btn-primary"
-                onClick={this.onSubmit}
-              >
-                Submit
-              </button>
-            </form>
+            </div>
           </div>
-          <div className="w-25" />
         </div>
       </div>
     );
