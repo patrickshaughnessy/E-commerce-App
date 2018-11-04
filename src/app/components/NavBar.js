@@ -1,20 +1,56 @@
-import React, { Component } from 'react';
-import { withRouter, Link } from 'react-router-dom';
+import React, { Component, Fragment } from 'react';
+import { withRouter, NavLink } from 'react-router-dom';
+
+const CustomNavLink = ({ to, exact, children }) => {
+  const generateLink = outer => (
+    <NavLink
+      to={to}
+      exact={exact}
+      activeClassName="active"
+      className={`nav-item nav-link ${outer ? 'd-none d-sm-block' : ''}`}
+    >
+      {children}
+    </NavLink>
+  );
+  return (
+    <Fragment>
+      {generateLink(true)}
+      <button
+        type="button"
+        className="navbar-toggler collapseButton"
+        href="#navbarSupportedContent"
+        data-toggle="collapse"
+      >
+        {generateLink()}
+      </button>
+    </Fragment>
+  );
+};
 
 class NavBar extends Component {
-  componentDidMount() {
-    console.log('nav did mount');
+  constructor(props) {
+    super(props);
+    this.navRef = React.createRef();
   }
+
+  toggleNav = () => {
+    console.log('clicked', this);
+    console.log('ref', this.navRef.current.className);
+    this.navRef.current.className += ' hide';
+  };
 
   render() {
     console.log('navbar render');
     const isAuthenticated = false;
     const logout = () => {};
     return (
-      <nav className="navbar navbar-expand-lg navbar-dark bg-primary">
-        <Link to="/" className="navbar-brand">
+      <nav
+        id="topNav"
+        className="navbar navbar-expand-lg navbar-dark bg-primary"
+      >
+        <NavLink to="/" className="navbar-brand">
           Best Store
-        </Link>
+        </NavLink>
         <button
           className="navbar-toggler"
           type="button"
@@ -27,34 +63,22 @@ class NavBar extends Component {
           <span className="navbar-toggler-icon" />
         </button>
 
-        <div className="collapse navbar-collapse" id="navbarSupportedContent">
+        <div
+          className="collapse navbar-collapse"
+          id="navbarSupportedContent"
+          ref={this.navRef}
+        >
           <div className="navbar-nav mr-auto">
-            <Link to="/" activeclassname="active" className="nav-item nav-link">
+            <CustomNavLink to="/" exact>
               Home
-            </Link>
-            <Link
-              to="/about"
-              activeclassname="active"
-              className="nav-item nav-link"
-            >
-              About
-            </Link>
+            </CustomNavLink>
+            <CustomNavLink to="/about">About</CustomNavLink>
           </div>
           <div className="navbar-nav justify-content-end">
-            <Link
-              to="/cart"
-              activeclassname="active"
-              className="nav-item nav-link"
-            >
-              Cart
-            </Link>
-            <Link
-              to={isAuthenticated ? '/account' : '/login'}
-              activeclassname="active"
-              className="nav-item nav-link"
-            >
+            <CustomNavLink to="/cart">Cart</CustomNavLink>
+            <CustomNavLink to={isAuthenticated ? '/account' : '/login'}>
               {isAuthenticated ? 'Account' : 'Login'}
-            </Link>
+            </CustomNavLink>
             {isAuthenticated ? (
               <button
                 type="button"
