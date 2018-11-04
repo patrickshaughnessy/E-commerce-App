@@ -20,6 +20,8 @@ const html = `<!DOCTYPE html>
 </html>
 `;
 
+const isDev = process.env.NODE_ENV === 'development';
+
 const generateHtml = ({ markup, data, assetsPath }) => {
   const helmet = Helmet.renderStatic();
   const $template = cheerio.load(html);
@@ -39,7 +41,7 @@ const generateHtml = ({ markup, data, assetsPath }) => {
     JSON.stringify(data).replace(/</g, '\\u003c')
   );
 
-  if (process.env.NODE_ENV === 'development') {
+  if (isDev) {
     $template('head').append(
       `<script id="css-hmr-script" type="text/javascript" src="${assetsPath}/css/styles.js"></script>`
     );
@@ -50,10 +52,9 @@ const generateHtml = ({ markup, data, assetsPath }) => {
 
 module.exports = app => {
   app.get('/*', (req, res) => {
-    // TODO - check the port on heroku
-    const protocol = process.env.NODE_ENV === 'production' ? 'https' : 'http';
-    const assetsPath = `${protocol}://${req.hostname}:${process.env.PORT ||
-      '3000'}`;
+    const protocol = isDev ? 'http' : 'https';
+    const port = isDev ? `:${process.env.PORT || '3000'}` : '';
+    const assetsPath = `${protocol}://${req.hostname}${port}`;
 
     console.log('assetsPath', assetsPath);
     const data = Object.assign({}, req.model, {
