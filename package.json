@@ -10,6 +10,7 @@
     "npm": "6"
   },
   "scripts": {
+    "postinstall": "npm run build",
     "start": "NODE_ENV=production node .",
     "start:dev": "NODE_ENV=development concurrently -r \"npm run start:dev:server-node\" \"npm run start:dev:client-js\" \"npm run start:dev:server-js\"",
     "start:dev:server-node": "nodemon",
