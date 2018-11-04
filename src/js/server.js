@@ -51,11 +51,11 @@ const generateHtml = ({ markup, data, assetsPath }) => {
 module.exports = app => {
   app.get('/*', (req, res) => {
     // TODO - check the port on heroku
-    const assetsPath = `${req.protocol}://${req.hostname}:${process.env.PORT ||
+    const protocol = process.env.NODE_ENV === 'production' ? 'https' : 'http';
+    const assetsPath = `${protocol}://${req.hostname}:${process.env.PORT ||
       '3000'}`;
 
     console.log('assetsPath', assetsPath);
-    console.log('req', req);
     const data = Object.assign({}, req.model, {
       application: {
         assetsPath,
