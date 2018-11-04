@@ -67,7 +67,7 @@ export class _Checkout extends Component {
   };
 
   renderAddressFields = () => (
-    <Fragment>
+    <div className="section">
       <h5>1. Where are we sending your items?</h5>
       <div className="form-group">
         <label htmlFor="addressName">Name</label>
@@ -146,15 +146,12 @@ export class _Checkout extends Component {
           <div className="invalid-feedback">Please provide a valid zip.</div>
         </div>
       </div>
-
-      <div className="form-group" />
-      <div className="form-group" />
-      <div className="form-group" />
-    </Fragment>
+    </div>
   );
 
   renderCardField = () => (
-    <Fragment>
+    <div className="section">
+      <hr />
       <h5>2. Enter payment details</h5>
       <div className="form-group">
         <input
@@ -167,21 +164,21 @@ export class _Checkout extends Component {
           onChange={e => this.setState({ card: e.target.value })}
         />
       </div>
-    </Fragment>
+    </div>
   );
 
   renderItemReview = () => {
     const { products, cart } = this.props;
-    console.log('products', products);
 
     if (!products.productsList.length || products.loading) {
       return <Loading message="Hang on, we're loading your cart" />;
     }
 
     return (
-      <Fragment>
+      <div className="section">
+        <hr />
         <h5>3. Review your items</h5>
-        <table className="table cartTable">
+        <table className="table itemReview">
           <thead>
             <tr>
               <th scope="col">Item</th>
@@ -212,7 +209,7 @@ export class _Checkout extends Component {
             })}
           </tbody>
         </table>
-      </Fragment>
+      </div>
     );
   };
 
@@ -232,19 +229,31 @@ export class _Checkout extends Component {
     );
     const tax = subtotal * 0.15;
     return (
-      <Fragment>
-        <h4 className="text-right">{`Subtotal: $${formatPrice(subtotal)}`}</h4>
-        <h6 className="text-right text-muted">
-          {`Tax: +$${formatPrice(tax)}`}
-        </h6>
-        <h6 className="text-right text-muted">
-          {`Shipping: +$${formatPrice(0)}`}
-        </h6>
+      <div className="section">
+        <hr />
+        <div className="totalsTable">
+          <table className="table-borderless text-right">
+            <tbody>
+              <tr>
+                <td>Subtotal:</td>
+                <td>{`$${formatPrice(subtotal)}`}</td>
+              </tr>
+              <tr>
+                <td>Tax:</td>
+                <td>{`$${formatPrice(tax)}`}</td>
+              </tr>
+              <tr>
+                <td>Shipping:</td>
+                <td>{`$${formatPrice(0)}`}</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
         <hr className="totalHr" />
-        <h2 className="text-right">
+        <h3 className="text-right">
           {`Total: $${formatPrice(subtotal + tax)}`}
-        </h2>
-      </Fragment>
+        </h3>
+      </div>
     );
   };
 
@@ -255,14 +264,11 @@ export class _Checkout extends Component {
           <div className="col-md-6 checkoutForm">
             <h1 className="text-center">Checkout</h1>
             <p className="text-center">Please enter your information below</p>
+            <hr />
             <form>
-              <hr />
               {this.renderAddressFields()}
-              <hr />
               {this.renderCardField()}
-              <hr />
               {this.renderItemReview()}
-              <hr />
               {this.renderTotals()}
               <button
                 type="submit"
