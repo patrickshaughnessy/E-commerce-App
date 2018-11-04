@@ -17,6 +17,7 @@ export const handleError = ({ dispatch, action }) => error => {
 export const INITIAL_STATE = {
   items: [],
   itemsById: {},
+  transactionId: false,
   error: false,
   loading: false,
 };
@@ -40,7 +41,6 @@ export default (state = INITIAL_STATE, action) => {
         loading: true,
         error: false,
       };
-    case CHECKOUT_SUCCESS:
     case UPDATE_CART_SUCCESS:
       return {
         ...state,
@@ -48,6 +48,11 @@ export default (state = INITIAL_STATE, action) => {
         itemsById: byId(action.payload.items),
         loading: false,
         error: false,
+      };
+    case CHECKOUT_SUCCESS:
+      return {
+        ...INITIAL_STATE,
+        transactionId: action.payload._id,
       };
     case CHECKOUT_FAILURE:
     case UPDATE_CART_FAILURE:
@@ -58,6 +63,7 @@ export default (state = INITIAL_STATE, action) => {
       };
     default:
       return {
+        ...INITIAL_STATE,
         ...state,
         itemsById: byId(state.items),
       };
@@ -75,6 +81,7 @@ export const checkout = payload => dispatch => {
     data: payload,
   })
     .then(({ data }) => {
+      console.log('data', data);
       dispatch({
         type: CHECKOUT_SUCCESS,
         payload: data,

@@ -133,15 +133,17 @@ class _Cart extends Component {
             }): $${total}`}
           </h4>
         </div>
-        <div className="checkoutButton text-right">
-          <button
-            type="button"
-            className="btn btn-lg btn-primary"
-            onClick={this.onClick}
-          >
-            Checkout
-          </button>
-        </div>
+        {items.length ? (
+          <div className="checkoutButton text-right">
+            <button
+              type="button"
+              className="btn btn-lg btn-primary"
+              onClick={this.onClick}
+            >
+              Checkout
+            </button>
+          </div>
+        ) : null}
       </div>
     );
   }

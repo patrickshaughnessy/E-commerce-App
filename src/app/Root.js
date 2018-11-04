@@ -11,6 +11,7 @@ import Login from './views/Login';
 import Cart from './views/Cart';
 import Checkout from './views/Checkout';
 import Signup from './views/Signup';
+import MyAccount from './views/MyAccount';
 import NotFound from './views/NotFound';
 
 const App = () => (
@@ -19,13 +20,17 @@ const App = () => (
     <NavBar />
     <Switch>
       <Route exact path="/" component={Home} />
+      <PrivateRoute path="/checkout" component={Checkout} />
+      <PrivateRoute
+        path="/myaccount/:view(orders)?/:id?"
+        component={MyAccount}
+      />
       <Route path="/about" component={About} />
       <Route path="/products/:productId" component={Product} />
       <Route path="/login" component={Login} />
       <Route path="/cart" component={Cart} />
-      <PrivateRoute path="/checkout" component={Checkout} />
       <Route path="/signup" component={Signup} />
-      <Route path="*" component={NotFound} />
+      <Route component={NotFound} />
     </Switch>
   </Fragment>
 );

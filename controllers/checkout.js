@@ -2,9 +2,10 @@ const { Transaction } = require('../data');
 
 const processTransaction = async (req, res, next) => {
   const {
-    body: { user, address, payment, cart },
+    body: { address, payment },
+    session: { user, cart },
   } = req;
-  console.log('user', cart);
+
   if (![user, address, payment, cart].every(param => !!param)) {
     console.log('missing params');
     const error = new Error('Something went wrong');
@@ -31,6 +32,10 @@ const processTransaction = async (req, res, next) => {
     error.status = 400;
     return next(error);
   }
+
+  req.session.cart = {
+    items: [],
+  };
 
   return res.status(200).json(transaction);
 };

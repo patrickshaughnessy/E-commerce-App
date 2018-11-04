@@ -1,4 +1,5 @@
 import React, { Component, Fragment } from 'react';
+import { Redirect } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { compose } from 'recompose';
 
@@ -7,17 +8,31 @@ import { checkout } from '../../redux/cart';
 import { fetchProducts } from '../../redux/products';
 import { formatPrice } from '../../../../lib/utils';
 
+export const calculateTotals = ({ items, productsById }) => {
+  const subtotal = items.reduce(
+    (sum, item) => sum + productsById[item.id].price * item.quantity,
+    0
+  );
+  const tax = subtotal * 0.095;
+  return {
+    subtotal,
+    tax,
+    total: subtotal + tax,
+  };
+};
+
 export class _Checkout extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      addressName: '',
+      name: '',
       addressLineOne: '',
       addressLineTwo: '',
       city: '',
       state: '',
       zip: '',
       card: '',
+      success: false,
     };
   }
 
@@ -32,13 +47,24 @@ export class _Checkout extends Component {
     }
   }
 
+  componentWillReceiveProps(nextProps) {
+    if (
+      this.props.cart.loading &&
+      !nextProps.cart.loading &&
+      nextProps.cart.transactionId
+    ) {
+      console.log('setting state');
+      this.setState({
+        success: true,
+      });
+    }
+  }
+
   onSubmit = event => {
     event.preventDefault();
-    console.log('submit', this.props);
-    console.log('yo', this.state);
-    const { user, cart, dispatchCheckout } = this.props;
+    const { cart, products, dispatchCheckout } = this.props;
     const {
-      addressName,
+      name,
       addressLineOne,
       addressLineTwo,
       city,
@@ -47,22 +73,25 @@ export class _Checkout extends Component {
       card,
     } = this.state;
 
+    const { total } = calculateTotals({
+      items: cart.items,
+      productsById: products.productsById,
+    });
+
     const payload = {
-      user,
-      cart,
       address: {
-        name: addressName,
+        name,
         addressLines: [addressLineOne, addressLineTwo],
         city,
         state,
         zip,
       },
       payment: {
-        amount: 99.5,
+        amount: formatPrice(total),
         card,
       },
     };
-
+    console.log(payload);
     return dispatchCheckout(payload);
   };
 
@@ -70,15 +99,15 @@ export class _Checkout extends Component {
     <div className="section">
       <h5>1. Where are we sending your items?</h5>
       <div className="form-group">
-        <label htmlFor="addressName">Name</label>
+        <label htmlFor="name">Name</label>
         <input
           type="text"
           className="form-control"
-          id="addressName"
-          aria-describedby="addressNameHelp"
+          id="name"
+          aria-describedby="nameHelp"
           placeholder="Name"
-          name="addressName"
-          onChange={e => this.setState({ addressName: e.target.value })}
+          name="name"
+          onChange={e => this.setState({ name: e.target.value })}
         />
       </div>
       <div className="form-group">
@@ -223,11 +252,11 @@ export class _Checkout extends Component {
       return <Loading message="Hang on, we're loading your cart" />;
     }
 
-    const subtotal = cart.items.reduce(
-      (sum, item) => sum + productsById[item.id].price * item.quantity,
-      0
-    );
-    const tax = subtotal * 0.15;
+    const { subtotal, tax, total } = calculateTotals({
+      items: cart.items,
+      productsById,
+    });
+
     return (
       <div className="section">
         <hr />
@@ -249,15 +278,25 @@ export class _Checkout extends Component {
             </tbody>
           </table>
         </div>
-        <hr className="totalHr" />
-        <h3 className="text-right">
-          {`Total: $${formatPrice(subtotal + tax)}`}
-        </h3>
+        <hr />
+        <h3 className="text-right">{`Total: $${formatPrice(total)}`}</h3>
       </div>
     );
   };
 
   render() {
+    const { cart } = this.props;
+    if (cart.loading) {
+      return <Loading message="Submitting your order..." />;
+    }
+
+    if (this.state.success) {
+      console.log('redirecting');
+      return (
+        <Redirect to={`/myaccount/orders/${this.props.cart.transactionId}`} />
+      );
+    }
+
     return (
       <div id="checkoutPage" className="container">
         <div className="row align-items-center">
