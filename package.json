@@ -30,6 +30,7 @@
     "loading-css": "^0.2.0",
     "lodash": "^4.17.11",
     "lorem-ipsum": "^1.0.6",
+    "moment": "^2.22.2",
     "mongoose": "^5.3.4",
     "react": "^16.5.2",
     "react-dom": "^16.5.2",

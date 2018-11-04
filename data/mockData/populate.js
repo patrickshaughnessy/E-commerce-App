@@ -2,6 +2,7 @@ const path = require('path');
 const fse = require('fs-extra');
 const mongoose = require('mongoose');
 const { Product } = require('../products');
+const { Transaction } = require('../transactions');
 
 const populateProducts = async () => {
   try {
@@ -22,6 +23,7 @@ const populateProducts = async () => {
     const products = await fse.readJson(filePath);
     console.log('Prepared products:', products.length);
     await Product.deleteMany({});
+    await Transaction.deleteMany({});
     await Promise.all(products.map(product => Product.create(product)));
     console.log('Populated new products into DB');
   } catch (e) {

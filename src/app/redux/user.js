@@ -1,6 +1,12 @@
 import { get } from 'lodash';
 import axios from 'axios';
 
+export const byId = transactions =>
+  (transactions || []).reduce(
+    (acc, transaction) => ({ ...acc, [transaction._id]: transaction }),
+    {}
+  );
+
 export const handleError = ({ dispatch, action }) => error => {
   dispatch({
     type: action,
@@ -13,6 +19,8 @@ export const handleError = ({ dispatch, action }) => error => {
 export const INITIAL_STATE = {
   firstName: '',
   lastName: '',
+  transactions: null,
+  transactionsById: {},
   isAuthenticated: false,
   loading: false,
   error: false,
@@ -31,12 +39,17 @@ export const CREATE_USER = 'CREATE_USER';
 export const CREATE_USER_SUCCESS = 'CREATE_USER_SUCCESS';
 export const CREATE_USER_FAILURE = 'CREATE_USER_FAILURE';
 
+export const FETCH_TRANSACTIONS = 'FETCH_TRANSACTIONS';
+export const FETCH_TRANSACTIONS_SUCCESS = 'FETCH_TRANSACTIONS_SUCCESS';
+export const FETCH_TRANSACTIONS_FAILURE = 'FETCH_TRANSACTIONS_FAILURE';
+
 // REDUCER
 export default (state = INITIAL_STATE, action) => {
   switch (action.type) {
     case LOGIN:
     case LOGOUT:
     case CREATE_USER:
+    case FETCH_TRANSACTIONS:
       return {
         ...state,
         loading: true,
@@ -52,9 +65,17 @@ export default (state = INITIAL_STATE, action) => {
       };
     case LOGOUT_SUCCESS:
       return INITIAL_STATE;
+    case FETCH_TRANSACTIONS_SUCCESS:
+      return {
+        ...state,
+        transactions: action.payload,
+        transactionsById: byId(action.payload),
+        loading: false,
+      };
     case LOGIN_FAILURE:
     case LOGOUT_FAILURE:
     case CREATE_USER_FAILURE:
+    case FETCH_TRANSACTIONS_FAILURE:
       return {
         ...INITIAL_STATE,
         loading: false,
@@ -66,6 +87,24 @@ export default (state = INITIAL_STATE, action) => {
 };
 
 // ACTIONS
+export const fetchTransactions = () => dispatch => {
+  dispatch({
+    type: FETCH_TRANSACTIONS,
+  });
+
+  return axios({
+    method: 'get',
+    url: '/api/transactions',
+  })
+    .then(response => {
+      dispatch({
+        type: FETCH_TRANSACTIONS_SUCCESS,
+        payload: response.data,
+      });
+    })
+    .catch(handleError({ dispatch, action: FETCH_TRANSACTIONS_FAILURE }));
+};
+
 export const login = ({ email, password }) => dispatch => {
   dispatch({
     type: LOGIN,

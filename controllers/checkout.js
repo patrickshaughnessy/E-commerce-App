@@ -18,7 +18,7 @@ const processTransaction = async (req, res, next) => {
     address,
     payment,
     items: cart.items.map(item => ({
-      productId: item.id,
+      product: item.id,
       quantity: item.quantity,
     })),
   };

@@ -1,7 +1,10 @@
 const mongoose = require('mongoose');
 
 const transactionSchema = new mongoose.Schema({
-  userId: mongoose.Schema.Types.ObjectId,
+  userId: {
+    type: mongoose.Schema.Types.ObjectId,
+    ref: 'User',
+  },
   address: {
     name: String,
     addressLines: [String],
@@ -15,10 +18,17 @@ const transactionSchema = new mongoose.Schema({
   },
   items: [
     {
-      productId: mongoose.Schema.Types.ObjectId,
+      product: {
+        type: mongoose.Schema.Types.ObjectId,
+        ref: 'Product',
+      },
       quantity: Number,
     },
   ],
+  date: {
+    type: Date,
+    default: Date.now,
+  },
 });
 
 const Transaction = mongoose.model('Transaction', transactionSchema);
