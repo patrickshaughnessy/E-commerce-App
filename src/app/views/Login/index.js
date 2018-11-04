@@ -11,7 +11,7 @@ export class _Login extends Component {
     this.state = {
       email: '',
       password: '',
-      redirectToReferrer: false,
+      redirectToReferrer: !!props.user.isAuthenticated,
     };
   }
 
@@ -31,12 +31,15 @@ export class _Login extends Component {
   };
 
   render() {
-    const { from } = this.props.location.state || { from: { pathname: '/' } };
+    const { from } = this.props.location.state || {
+      from: { pathname: '/myaccount' },
+    };
+
     const { redirectToReferrer } = this.state;
-    console.log('from', from);
     if (redirectToReferrer) {
       return <Redirect to={from} />;
     }
+
     return (
       <div className="container">
         <div className="row align-items-center">
