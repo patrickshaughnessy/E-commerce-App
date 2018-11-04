@@ -41,6 +41,7 @@
     "lorem-ipsum": "^1.0.6",
     "moment": "^2.22.2",
     "mongoose": "^5.3.4",
+    "normalize.css": "^8.0.0",
     "react": "^16.5.2",
     "react-dom": "^16.5.2",
     "react-helmet": "^5.2.0",

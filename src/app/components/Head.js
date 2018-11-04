@@ -8,7 +8,7 @@ export const _Head = ({ assetsPath }) => (
     <meta charset="UTF-8" />
     <meta
       name="viewport"
-      content="width=device-width, initial-scale=1, shrink-to-fit=no"
+      content="width=device-width, initial-scale=1, user-scalable=no"
     />
     <meta name="application-name" content="E-commerce App" />
     <meta name="keywords" content="ecommerce, buy sell products" />
