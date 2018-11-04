@@ -10,9 +10,8 @@ export const _PrivateRoute = ({
 }) => (
   <Route
     {...rest}
-    render={props => {
-      console.log('private', props, rest);
-      return isAuthenticated ? (
+    render={props =>
+      isAuthenticated ? (
         <Component {...props} />
       ) : (
         <Redirect
@@ -21,8 +20,8 @@ export const _PrivateRoute = ({
             state: { from: props.location },
           }}
         />
-      );
-    }}
+      )
+    }
   />
 );
 

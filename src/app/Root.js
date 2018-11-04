@@ -22,7 +22,7 @@ const App = () => (
       <Route exact path="/" component={Home} />
       <PrivateRoute path="/checkout" component={Checkout} />
       <PrivateRoute
-        path="/myaccount/:view(orders)?/:id?"
+        path="/myaccount/:view(orders|address|payment|info)?/:id?"
         component={MyAccount}
       />
       <Route path="/about" component={About} />
