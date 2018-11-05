@@ -61,7 +61,7 @@ class _Product extends Component {
                 <QuantitySelect
                   id="quantitySelect"
                   quantity={quantity}
-                  onChange={e => this.setState({ quantity: +e.target.value })}
+                  onChange={value => this.setState({ quantity: value })}
                 />
               </div>
               <div className="col addToCart">

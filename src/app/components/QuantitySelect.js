@@ -6,30 +6,57 @@ class _QuantitySelect extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      isCustomQuantity: false,
+      customQuantity: props.quantity >= 10 ? props.quantity : false,
     };
   }
 
+  handleCustomInput = e => {
+    this.setState({ customQuantity: +e.target.value });
+  };
+
+  handleChange = e => {
+    const { onChange } = this.props;
+    const { value } = e.target;
+
+    if (value === 'custom') {
+      this.setState({ customQuantity: 10 });
+      return onChange(10);
+    }
+
+    return onChange(value);
+  };
+
   render() {
-    const { isCustomQuantity } = this.state;
+    const { customQuantity } = this.state;
     const { quantity, onChange, className, id } = this.props;
 
-    const quantityOptions = Array(10)
+    const quantityOptions = Array(9)
       .fill(1)
       .map((opt, i) => (
         <option key={v4()} value={i + 1}>
           {i + 1}
         </option>
-      ));
+      ))
+      .concat(
+        <option key={v4()} value="custom">
+          10+
+        </option>
+      );
 
     return (
       <Fragment>
-        {isCustomQuantity ? (
-          <input type="number" onChange={onChange} />
+        {customQuantity ? (
+          <input
+            type="number"
+            className="form-control"
+            value={customQuantity}
+            onChange={this.handleCustomInput}
+            onBlur={() => onChange(customQuantity)}
+          />
         ) : (
           <select
             value={quantity}
-            onChange={onChange}
+            onChange={this.handleChange}
             className={`form-control ${className || ''}`}
             id={id}
           >

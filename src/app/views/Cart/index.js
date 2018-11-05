@@ -78,10 +78,10 @@ class _Cart extends Component {
           <td className="font-weight-bold">
             <QuantitySelect
               quantity={item.quantity}
-              onChange={e =>
+              onChange={value =>
                 dispatchUpdateCart({
                   productId: item.id,
-                  quantity: e.target.value,
+                  quantity: value,
                 })
               }
             />
