@@ -20,14 +20,12 @@ class _Cart extends Component {
 
   componentDidMount() {
     const { dispatchFetchProducts, productsList, loading } = this.props;
-    // TODO - add error check as well
     if (!productsList.length && !loading) {
       dispatchFetchProducts();
     }
   }
 
-  onClick = () => {
-    console.log('checkout');
+  onCheckout = () => {
     this.setState({ redirectToCheckout: true });
   };
 
@@ -138,7 +136,7 @@ class _Cart extends Component {
             <button
               type="button"
               className="btn btn-lg btn-primary"
-              onClick={this.onClick}
+              onClick={this.onCheckout}
             >
               Checkout
             </button>

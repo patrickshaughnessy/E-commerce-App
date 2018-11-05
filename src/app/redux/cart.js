@@ -5,7 +5,6 @@ export const byId = items =>
   (items || []).reduce((acc, item) => ({ ...acc, [item.id]: item }), {});
 
 export const handleError = ({ dispatch, action }) => error => {
-  console.log('error', error);
   dispatch({
     type: action,
     payload: {
@@ -81,7 +80,6 @@ export const checkout = payload => dispatch => {
     data: payload,
   })
     .then(({ data }) => {
-      console.log('data', data);
       dispatch({
         type: CHECKOUT_SUCCESS,
         payload: data,

@@ -1,8 +1,21 @@
 #homePage {
   .jumbotron {
-    background-image: url('https://images.unsplash.com/photo-1540849615499-5000b6b4bafc');
+    background: linear-gradient(
+        rgba(89, 49, 150, 1),
+        rgba(89, 49, 150, 0.8),
+        rgba(89, 49, 150, 0.5),
+        rgba(89, 49, 150, 0.2),
+        rgba(255, 255, 255, 0.1),
+        rgba(255, 255, 255, 1)
+      ),
+      url('https://images.unsplash.com/photo-1540849615499-5000b6b4bafc');
     background-size: cover;
     height: 50vh;
+
+    h1,
+    p {
+      font-weight: bold;
+    }
   }
 
   .product {

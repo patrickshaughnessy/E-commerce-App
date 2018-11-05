@@ -28,7 +28,7 @@ const About = () => (
           Umami etsy craft beer, leggings health goth ramps humblebrag actually
           duis banh mi. Shaman viral intelligentsia YOLO bespoke copper mug
           proident freegan bushwick. Williamsburg kitsch authentic, before they
-          sold out live-edge you probably haven't heard of them tumeric food
+          sold out live-edge you probably havent heard of them tumeric food
           truck.
         </p>
       </div>
