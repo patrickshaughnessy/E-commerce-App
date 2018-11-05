@@ -1,4 +1,6 @@
 #homePage {
+  background-color: rgba(238, 213, 218, 0.2);
+
   .jumbotron {
     background: linear-gradient(
         rgba(89, 49, 150, 1),
@@ -6,7 +8,7 @@
         rgba(89, 49, 150, 0.5),
         rgba(89, 49, 150, 0.2),
         rgba(255, 255, 255, 0.1),
-        rgba(255, 255, 255, 1)
+        rgba(255, 255, 255, 0.85)
       ),
       url('https://images.unsplash.com/photo-1540849615499-5000b6b4bafc');
     background-size: cover;
@@ -15,12 +17,17 @@
     h1,
     p {
       font-weight: bold;
+      color: #f6f2fb;
     }
   }
 
   .product {
+    .card {
+      border: none;
+    }
+
     img {
-      margin: 2% auto;
+      margin: 0 auto;
       display: block;
     }
   }
